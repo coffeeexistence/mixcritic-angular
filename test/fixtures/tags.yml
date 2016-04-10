@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mixer_id: 1
+  critic_id: 1
+  revision_id: 1
+  description: MyText
+
+two:
+  mixer_id: 1
+  critic_id: 1
+  revision_id: 1
+  description: MyText

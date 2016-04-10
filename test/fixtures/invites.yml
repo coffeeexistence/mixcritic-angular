@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mix_id: 1
+  critic_id: 1
+  mixer_id: 1
+  accepted: false
+  note: MyString
+  offer: 1
+
+two:
+  mix_id: 1
+  critic_id: 1
+  mixer_id: 1
+  accepted: false
+  note: MyString
+  offer: 1

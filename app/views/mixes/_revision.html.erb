@@ -1,0 +1,29 @@
+<div id="revision-<%= revision.id %>">
+
+  <ul class="collection">
+    <li class="collection-item blue-grey lighten-5">
+      <h5 class="sm-margins center-align thin-text"><%= title %>:</h5>
+    </li>
+    <li class="collection-item">
+          <div class="center-align">
+            <%= render partial: 'audio', locals: {revision: revision} %>
+            <%= render partial: "write_critique", locals: { revision: revision } %>
+          </div>
+
+    </li>
+
+    <li class="collection-item">
+      <div class="critiques">
+        
+        <h5>Critiques:</h5>
+        <div class="hr-left"></div>
+        
+        <div class='show-critiques'>
+            <%= render partial: "show_critiques", locals: { critiques: revision.top_5_critiques } %>
+          
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>

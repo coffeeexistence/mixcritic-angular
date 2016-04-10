@@ -1,0 +1,24 @@
+
+<% if logged_in? %>
+
+  <%= link_to "Write a Critique", new_revision_critique_path(revision), class: 'write-critique ' %>
+  <div class="hidden critique-form-container">
+    <div id='critique-error-messages'><ul></ul></div>
+
+    <%= form_for :critique, url: revision_critiques_path(revision), :html => {:class => 'critique-form'} do |f| %>
+      <%= hidden_field_tag 'critique[critic_id]', current_user.id %>
+
+      <div class="row">
+        <div class="input-field col s12">
+            <%= f.text_area :body, class:"materialize-textarea" %>
+            <label for="body">Write your Critique here!</label>
+        </div>
+      </div>
+
+      <%= f.submit "Post Critique"%>
+    <% end %>
+  </div>
+
+<% else %>
+  <%= link_to "You must be Signed-In to write a Critique", new_user_session_path, class: 'signin-required' %>
+<% end %>

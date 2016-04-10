@@ -1,0 +1,70 @@
+<div class="container">
+  <h2>Create a new Mix</h2>
+
+  <% if @mix.errors.any? %>
+    <div id="error_explanation">
+      <h5>
+        <%= pluralize(@mix.errors.count, "error") %>
+        prohibited this post from being saved:
+      </h5>
+   
+      <ul>
+      <% @mix.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="new-mix-form">
+    <%=form_for :mix_submission, url: '/mixes' do |f| %>
+        <%= fields_for @mix do |main| %>
+
+             <div class="row">
+                <div class="input-field col s8">
+                    <%= main.text_field :title, size: 97 %>
+                    <label for="title">Mix Title</label>
+                </div>
+
+                <div class="input-field col s4">
+                  <%= main.collection_select :genre_id, Genre.all, :id, :name %>
+                  <label for="genre_id">Genre:</label>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <%= main.text_area :description, cols:100, rows:10, class:"materialize-textarea" %>
+                    <label for="description">Mix Description</label>
+                </div>
+            </div>
+
+
+        <% end %>
+        <div class="row">
+            <div class="col s12">
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <%= f.file_field :mix_file %><br>
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <%= f.submit "Submit Mix", class:'btn'%>
+        <div class="hidden" id="new-mix-progress-bar">
+          <div class="progress">
+            <div class="indeterminate"></div>
+          </div>
+        </div>  
+
+    <% end %>
+  </div>
+</div>
+
+    

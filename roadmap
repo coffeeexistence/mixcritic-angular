@@ -1,0 +1,24 @@
+User has many mixes
+
+user can specify who they would like as a critic by traits(good with snare compression, certain genres)
+
+mixes have many critic requests(with $ offers)
+
+mixes have many revisions
+
+revisions has one description and many changes
+
+each revision has a thread where critics and artists can converse(linearly)
+
+changes can have critic tagged, or not
+
+changes have a time range and a description
+
+
+TODO:
+
+Make mixes destroyable and update-able
+
+Render Critiques show/create via jQuery
+
+Get profile images set up

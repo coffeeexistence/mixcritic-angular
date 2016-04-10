@@ -1,0 +1,11 @@
+<% critiques.each do |critique| %>
+  <div class="row subsection">
+    <%= render partial: "show_critique", locals: { critique: critique } %>
+  </div>
+<% end %>
+
+<div class="no-critiques">
+  <% if critiques.length==0 %>
+          There are no critiques to show, yet.
+  <% end %>
+</div>

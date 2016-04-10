@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  revision_id: 1
+  user_id: 1
+  start_second: 1.5
+  end_second: 1.5
+
+two:
+  description: MyText
+  revision_id: 1
+  user_id: 1
+  start_second: 1.5
+  end_second: 1.5

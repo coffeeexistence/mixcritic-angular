@@ -1,0 +1,36 @@
+
+
+
+
+
+.revision {
+  @extend .semi-pillowed
+}
+
+.critiques {
+  padding-bottom: 10px;
+}
+
+.critique {
+  @extend .center-block;
+  @extend .card; 
+  
+}
+
+.critique-header {
+  @extend .card-title;
+}
+
+.critique-subheader {
+  
+  
+}
+
+.critique-body {
+  @extend .card-content;
+}
+
+.subsection {
+  margin:2em;
+}
+

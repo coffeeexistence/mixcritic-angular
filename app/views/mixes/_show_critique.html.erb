@@ -1,0 +1,14 @@
+
+<div class="container">
+  <div class="critique hoverable z-depth-1">
+    <div class="blue-grey lighten-4">
+     <div class="chip center-align">
+      <%= image_tag critique.critic.avatar.url(:tiny) %><%= critique.critic.available_name %> says:
+      </div>
+    </div>
+    <div class="critique-body"><%= critique.body %></div>
+    <%= render partial: 'critique_comments', locals: {critique: critique} %>
+  </div>
+</div>
+
+

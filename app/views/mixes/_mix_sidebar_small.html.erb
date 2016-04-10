@@ -1,0 +1,12 @@
+<ul class="collection">
+  <li class="collection-item">
+      <%= render partial: 'layouts/users/chip', locals: {user: mix.user, text: ""} %>
+
+  </li>
+  <li class="collection-item">
+    <div class="row">
+      <div class="col s6">Views: <%= mix.views %></div>
+      <div class="col s6">Critiques: <%= mix.critique_count %></div>
+    </div>
+  </li>
+</ul>

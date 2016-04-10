@@ -1,0 +1,36 @@
+
+    <h1 class="medium-text">Edit Mix</h1>
+    <% if @mix.errors.any? %>
+      <div id="error_explanation">
+        <h3>
+          <%= pluralize(@mix.errors.count, "error") %>
+          prohibited this post from being saved:
+        </h3>
+     
+        <ul>
+        <% @mix.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%=form_for :mix_submission, url: '/mixes' do |f| %>
+        <%= fields_for @mix do |main| %>
+            <%= main.label "Mix title:" %>
+            <br>
+            <%= main.text_field :title, size: 97 %>
+            <br>
+            <%= main.label "Description:" %>
+            <br>
+            <%= main.text_area :description, cols:100, rows:10 %>
+            <br>
+
+        <% end %>
+        <%= f.file_field :mix_file %><br>
+        
+        <%= f.submit "Update Mix"%>
+    <% end %>
+
+
+    
