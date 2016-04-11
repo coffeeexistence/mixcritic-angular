@@ -12,8 +12,5 @@
 //
 //= require jquery
 //= require materialize-sprockets
-//= require turbolinks
-//= require mixes/show
-//= require mixes/index
-//= require mixes/new
-
+//= require angular/angular
+//= require_tree .

@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   resources :revisions do
       resources :critiques, only: [:new, :create]
   end
+
   resources :uploads, only: [:new, :index, :create]
+
+  resources :front_end
+  
 end
