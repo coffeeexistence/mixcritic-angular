@@ -45,6 +45,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    angular-rails-templates (1.0.0)
+      railties (>= 4.2, < 6)
+      sprockets (~> 3.0)
+      tilt
     arel (6.0.3)
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
@@ -243,6 +247,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers!
+  angular-rails-templates (>= 1.0)
   aws-sdk-v1
   bower-rails
   byebug

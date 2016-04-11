@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :uploads, only: [:new, :index, :create]
 
   resources :front_end
-  
+
+  get 'api/mixes', to: 'api#mixes'
+
 end
