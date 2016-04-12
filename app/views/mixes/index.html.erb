@@ -1,6 +1,6 @@
 <div class="medium-text thin-text">People looking for constructive feedback:</div>
-    
-    
+
+
 <div class="search-bar">
   <div class="row">
     <%=form_for :search_query do |s|%>
@@ -19,15 +19,15 @@
         <%= render partial: 'mix_sidebar_small', locals: {mix: mix} %>
       </div>
       <div class="col s9">
-        
-        <div class="mix-title grey-text thin-text"><%= link_to mix.title, mix_path(mix)  %> 
+
+        <div class="mix-title grey-text thin-text"><%= link_to mix.title, mix_path(mix)  %>
         (<%=mix.genre.name if mix.genre%>)
         </div>
         <div class="hr-left"></div>
         <blockquote><div class="mix-description "><%= mix.short_description %></div></blockquote>
         <div class="hidden"><%= render partial: 'audio', locals: {revision: mix.current_revision} %></div>
         <%= link_to "Show more", mix_show_more_path(mix), class: 'btn btn-secondary btn-sm show-more' %>
-      </div>  
+      </div>
     </div>
   </ul>
 

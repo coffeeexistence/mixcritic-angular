@@ -22,6 +22,10 @@ class Mix < ActiveRecord::Base
     self.revisions.last
   end
 
+  def current_revision_id
+    self.current_revision.id
+  end
+
   def current_revision_audio_path
     self.current_revision.audio_path
   end
@@ -29,6 +33,7 @@ class Mix < ActiveRecord::Base
   def first_revision
     self.revisions.first
   end
+
 
   def invalid_revision?(revision)
     revision['file'].empty?

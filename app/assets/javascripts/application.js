@@ -13,6 +13,9 @@
 //= require jquery
 //= require materialize-sprockets
 //= require angular/angular
+//= require angular/angular
+//= require angular-sanitize/angular-sanitize
+//= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
 //= require_tree ./templates
 //= require_tree .

@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   resources :front_end
 
   get 'api/mixes', to: 'api#mixes'
+  get 'api/mix/:id', to: 'api#mix'
+  get 'api/short_user_info/:id', to: 'api#short_user_info'
+
 
 end

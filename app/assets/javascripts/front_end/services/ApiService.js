@@ -5,7 +5,13 @@ function ApiService($http){
     return $http.get('/api/mixes');
   };
 
+  service.getMix = function(id){
+    return $http.get('/api/mix/'+id);
+  };
 
+  service.shortUserInfo = function(id){
+    return $http.get('/api/short_user_info/'+id);
+  };
 
 
 };

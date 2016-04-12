@@ -1,1 +1,42 @@
-I am a happy mix preview, one day I will be awesome
+
+
+<ul class="collection">
+  <div class="row mix-link padding-7">
+    <div class="col s3">
+
+      <ul class="collection">
+        <li class="collection-item">
+            <user-chip user-id="mixCtrl.mix.user_id"></user-chip>
+        </li>
+        <li class="collection-item">
+          <div class="row">
+            <div class="col s6">Views: {{mixCtrl.mix.views}}</div>
+            <div class="col s6">Critiques: {{mixCtrl.mix.critique_count}}</div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <div class="col s9">
+
+      <div class="mix-title grey-text thin-text">
+        <a href="#">{{mixCtrl.mix.title}}</a>
+        {{mixCtrl.mix.genre.name}}
+      </div>
+
+      <div class="hr-left"></div>
+
+      <blockquote><div class="mix-description">
+        <p ng-if="!mixCtrl.expanded">{{mixCtrl.short_description()}}</p>
+        <p ng-if="mixCtrl.expanded">{{mixCtrl.mix.description}}</p>
+      </div></blockquote>
+
+      <button ng-show="!mixCtrl.expanded" ng-click="mixCtrl.expand();" class="btn btn-secondary btn-sm show-more">Show more</button>
+      <div ng-show="mixCtrl.expanded">
+        <small-audio-player url="mixCtrl.mix.current_revision_audio_path"></small-audio-player>
+      </div>
+
+    </div>
+
+  </div>
+</ul>
