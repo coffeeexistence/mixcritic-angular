@@ -9,6 +9,10 @@ function ApiService($http){
     return $http.get('/api/mix/'+id);
   };
 
+  service.getRevision = function(id){
+    return $http.get('/api/revision/'+id);
+  };
+
   service.shortUserInfo = function(id){
     return $http.get('/api/short_user_info/'+id);
   };

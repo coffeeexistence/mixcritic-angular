@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'api/mixes', to: 'api#mixes'
   get 'api/mix/:id', to: 'api#mix'
+  get 'api/revision/:id', to: 'api#revision'
   get 'api/short_user_info/:id', to: 'api#short_user_info'
 
 

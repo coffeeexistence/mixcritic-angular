@@ -24,4 +24,9 @@ class ApiController < ApplicationController
     render json: mix
   end
 
+  def revision
+    revision = Revision.find(params[:id])
+    render json: revision
+  end
+
 end

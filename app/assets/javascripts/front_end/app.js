@@ -16,5 +16,6 @@ angular
                 return ApiService.getMix($stateParams.id);
               }
             }
+
           });
         });

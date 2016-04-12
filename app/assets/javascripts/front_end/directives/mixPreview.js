@@ -22,8 +22,6 @@ function mixPreview() {
 				mixCtrl.expanded = true;
 			};
 
-
-
   	},
 		controllerAs: 'mixCtrl',
 		templateUrl: 'mixes/mix_preview_template.html'
