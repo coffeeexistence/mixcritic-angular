@@ -1,4 +1,4 @@
-function RegistrationController(Auth, $http, $scope, $rootScope){
+function RegistrationController(Auth, $http, $scope, $rootScope, $state){
 	var ctrl = this;
 
 	ctrl.cred = {
@@ -25,6 +25,7 @@ function RegistrationController(Auth, $http, $scope, $rootScope){
 	ctrl.submit = function(){
 		Auth.register(ctrl.readyCredentials(), config).then(function(registeredUser) {
 							$rootScope.$emit('alert', "Successfully Registered");
+							$state.go('mixes');
 	        }, function(error) {
 	            $rootScope.$emit('alert', 'Registration Unsuccessful');
 	        });
