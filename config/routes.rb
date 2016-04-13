@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  root 'home#index'
+
   resources :mixes do
     get :show_more
   end
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :uploads, only: [:new, :index, :create]
 
-  resources :front_end
+  root 'front_end#index'
 
   get 'api/mixes', to: 'api#mixes'
   get 'api/mix/:id', to: 'api#mix'

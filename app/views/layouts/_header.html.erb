@@ -1,8 +1,0 @@
-
-<% if logged_in? %>
-    <div class="chip"><%= image_tag current_user.avatar.url(:tiny) %>Signed In as: <%= current_user.available_name %></div>
-    (<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>)
-<% else %>
-<%= link_to "Sign in", new_user_session_path %><br>
-<%= link_to("Sign up", new_user_registration_path) %>
-<% end %>

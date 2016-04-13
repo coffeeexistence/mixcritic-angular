@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     if name.length>max_length
       return name[0...20]+"..."
     else
-      return name 
+      return name
     end
   end
 
@@ -60,5 +60,5 @@ class User < ActiveRecord::Base
     end
   end
 
-  
+
 end

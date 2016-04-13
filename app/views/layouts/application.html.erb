@@ -15,12 +15,12 @@
       </div>
       <div class="col s4 valign-wrapper">
         <div class="text-center">
-         <a class="waves-effect btn-flat btn-large" href="<%=new_mix_path%>"><i class="material-icons left">add</i>New Mix</a>
-         <a class="waves-effect btn-flat btn-large" href="<%=mixes_path%>"><i class="material-icons left">album</i>Mixes</a>
+         <button class="waves-effect btn-flat btn-large" ui-sref="mixes"><i class="material-icons left">add</i>New Mix</a>
+         <button class="waves-effect btn-flat btn-large" ui-sref="mixes"><i class="material-icons left">album</i>Mixes</a>
         </div>
       </div>
       <div class="col s4 valign-wrapper">
-        <div class="valign"><%= render 'layouts/header' %></div>
+        <session-actions></session-actions>
       </div>
     </div>
   </div>

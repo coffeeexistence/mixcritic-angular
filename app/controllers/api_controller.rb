@@ -10,9 +10,9 @@ class ApiController < ApplicationController
     user_info = {
       name: user.available_name,
       img: {
-        tiny: user.avatar.url(:tiny),
-        thumb: user.avatar.url(:thumb),
-        small: user.avatar.url(:small)
+        tiny: view_context.image_path(user.avatar.url(:tiny)),
+        thumb: view_context.image_path(user.avatar.url(:thumb)),
+        small: view_context.image_path(user.avatar.url(:small))
       }
     }
 

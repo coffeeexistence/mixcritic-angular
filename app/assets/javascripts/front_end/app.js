@@ -1,6 +1,7 @@
 angular
     .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise'])
-      .config(function($stateProvider){
+      .config(function($stateProvider, $urlMatcherFactoryProvider){
+        $urlMatcherFactoryProvider.strictMode(false);
         $stateProvider
           .state( 'mixes', {
             url: '',
@@ -17,10 +18,16 @@ angular
               }
             }
           })
-          .state('register', {
+          .state('session_register', {
             url: '/register',
-            templateUrl: 'auth/registration_template.html',
+            templateUrl: 'auth/session_register_template.html',
             controller: 'RegistrationController',
             controllerAs: 'RegCtrl',
+          })
+          .state('session_new', {
+            url: '/login',
+            templateUrl: 'auth/session_new_template.html',
+            controller: 'LoginController',
+            controllerAs: 'LoginCtrl',
           });
         });

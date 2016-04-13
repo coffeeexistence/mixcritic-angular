@@ -4,6 +4,7 @@ function userChip() {
 		scope: {
 			userId: '='
 		},
+		transclude: true,
 		controller: function(ApiService, $scope, $filter, $attrs){
 			var chipCtrl =  this;
 
@@ -18,7 +19,7 @@ function userChip() {
 		template: [
 			'<div class="chip">',
 				'<img ng-src="{{chipCtrl.user.img.tiny}}">',
-				'{{chipCtrl.user.name}}',
+				'<ng-transclude></ng-transclude>{{chipCtrl.user.name}}',
 			'</div>',
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {

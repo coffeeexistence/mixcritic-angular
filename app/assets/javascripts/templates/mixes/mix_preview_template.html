@@ -6,7 +6,7 @@
 
       <ul class="collection">
         <li class="collection-item">
-            <user-chip user-id="mixCtrl.mix.user_id"></user-chip>
+            <user-chip user-id="mixCtrl.mix.user_id">Posted by </user-chip>
         </li>
         <li class="collection-item">
           <div class="row">
@@ -20,7 +20,7 @@
     <div class="col s9">
 
       <div class="mix-title grey-text thin-text">
-        <a href="#">{{mixCtrl.mix.title}}</a>
+        <a ui-sref="mix({id:mixCtrl.mix.id})">{{mixCtrl.mix.title}}</a>
         {{mixCtrl.mix.genre.name}}
       </div>
 
