@@ -20,5 +20,9 @@ module MixCritic
 
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
 
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
+
   end
 end

@@ -4,7 +4,7 @@ function critiqueForm() {
 		scope: {
 			revision: '='
 		},
-		controller: function(ApiService, $sce){
+		controller: function(ApiService, $sce, Auth){
 			var ctrl =  this;
 			ctrl.show = false;
 

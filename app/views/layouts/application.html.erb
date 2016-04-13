@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
   <title>Mixcritic</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body ng-controller="MainController as MainCtrl">
   <div class="container">
     <div class="row slim vertical-align">
       <div class="col s4 valign-wrapper">
@@ -25,11 +25,11 @@
     </div>
   </div>
   <hr class="thin-hr">
-  
+
 
   <br><br>
   <div class="container">
-  <div class="center-align"><%= render 'layouts/alerts' %></div>
+  <alerts></alerts>
       <%= yield %>
   </div>
 

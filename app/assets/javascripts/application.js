@@ -17,5 +17,6 @@
 //= require angular-sanitize/angular-sanitize
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
+//= require angular-devise/lib/devise
 //= require_tree ./templates
 //= require_tree .
