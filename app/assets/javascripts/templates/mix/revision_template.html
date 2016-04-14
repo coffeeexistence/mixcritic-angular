@@ -6,11 +6,11 @@
     </li>
     <li class="collection-item">
           <div class="center-align">
-            <small-audio-player url="RevCtrl.revision.upload.url"></small-audio-player>
+            <small-audio-player url="revision.upload.url"></small-audio-player>
 
             <div ng-init="showForm=false"></div>
             <button ng-click="showForm=true" class="btn">Write Critique</button><br />
-            <critique-form ng-if="showForm" revision="RevCtrl.revision"></critique-form>
+            <critique-form ng-if="showForm" revision="revision"></critique-form>
 
           </div>
 
@@ -23,8 +23,8 @@
         <div class="hr-left"></div>
 
         <div class='show-critiques'>
-            <%= render partial: "show_critiques", locals: { critiques: revision.top_5_critiques } %>
 
+            <critique-display ng-repeat="critique in revision.critiques" critique="critique"></critique-display>
         </div>
       </div>
     </li>

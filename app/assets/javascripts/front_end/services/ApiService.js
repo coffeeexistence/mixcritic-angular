@@ -17,6 +17,10 @@ function ApiService($http){
     return $http.get('/api/short_user_info/'+id);
   };
 
+  service.getCritiqueComments = function(id){
+    return $http.get('/api/critique_comments/'+id);
+  };
+
 
 };
 

@@ -29,4 +29,9 @@ class ApiController < ApplicationController
     render json: revision
   end
 
+  def critique_comments
+    comments = Critique.find(params[:id]).comments
+    render json: comments
+  end
+
 end

@@ -4,16 +4,19 @@ function mixRevision() {
 		scope: {
 			id: '='
 		},
-		controller: function(ApiService, $sce){
+		controller: function(ApiService, $sce, $scope){
 			var ctrl =  this;
 			ctrl.show = false;
 
 			ctrl.load = function(id){
 				ApiService.getRevision(id).then(function(res){
-					ctrl.revision = res.data;
+					$scope.revision = res.data;
 					ctrl.id = id;
 					ctrl.show = true;
+					console.log($scope.revision);
 				});
+
+
 
 			};
   	},

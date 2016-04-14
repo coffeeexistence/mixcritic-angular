@@ -1,19 +1,14 @@
 <hr class="slim">
 <div class="slim-text center-align">Comments</div>
+<div ng-if="CommentsCtrl.show" class="container critique-comments">
 
-<div class="container critique-comments">
-
-  <% critique.comments.each do |comment| %>
-    <div class="row valign-wrapper collection" style="margin-bottom:5px;">
-
+    <div ng-repeat="comment in comments" class="row valign-wrapper collection" style="margin-bottom:5px;">
       <div class="col" style="padding-right:0px">
-        <div class="chip right-align white">
-          <%= image_tag comment.user.avatar.url(:tiny) %><%= comment.user.available_name %>:
-        </div>
+        <user-chip user-id="comment.user.id"></user-chip>
       </div>
       <div class="col" style="padding-left:0px">
-        <div class="valign left-align" ><%=comment.body%></div>
+        <div class="valign left-align" >{{comment.body}}</div>
       </div>
     </div>
-  <% end %>
+
 </div>
