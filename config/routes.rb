@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'api/revision/:id', to: 'api#revision'
   get 'api/short_user_info/:id', to: 'api#short_user_info'
   get 'api/critique_comments/:id', to: 'api#critique_comments'
+  post 'api/critique_comment', to: 'api#new_critique_comment'
 
 
 end

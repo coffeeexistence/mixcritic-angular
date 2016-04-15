@@ -34,4 +34,8 @@ class ApiController < ApplicationController
     render json: comments
   end
 
+  def new_critique_comment
+    byebug
+  end
+
 end

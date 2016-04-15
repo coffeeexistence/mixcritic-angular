@@ -29,6 +29,7 @@ function critiqueComments() {
 					'<li class="blue-grey lighten-4 "><user-chip user-id="comment.user_id"></user-chip></li>',
 					'<li class="collection-item">{{comment.body}}</li>',
 		    '</ul>',
+				'<new-critique-comment critique="critique"></new-critique-comment>',
 			'</div>'
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {

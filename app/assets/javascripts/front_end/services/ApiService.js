@@ -21,6 +21,10 @@ function ApiService($http){
     return $http.get('/api/critique_comments/'+id);
   };
 
+  service.newCritiqueComment = function(comment){
+    return $http.post('/api/critique_comment', {critique_comment: comment});
+  };
+
 
 };
 
