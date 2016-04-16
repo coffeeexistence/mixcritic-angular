@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   has_many :tags, foreign_key: "critic_id", class_name: "Tag"
 
+  has_many :critique_comments
+
   has_attached_file :avatar, default_url: ':style/default.png', :styles => {
       :tiny => "50x50#",
       :thumb => "100x100#",

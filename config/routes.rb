@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   root 'front_end#index'
 
   scope '/api' do
-    scope '/users' do
-    end
+    resources :users_data, only: [:show]
 
     resources :mixes, only: [:index, :create, :show, :update]
 

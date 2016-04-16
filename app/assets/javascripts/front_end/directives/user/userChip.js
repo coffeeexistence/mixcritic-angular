@@ -5,12 +5,12 @@ function userChip() {
 			userId: '='
 		},
 		transclude: true,
-		controller: function(ApiService, $scope, $filter, $attrs){
+		controller: function(ApiService, $scope){
 			var chipCtrl =  this;
 
 			chipCtrl.load = function(id){
-				ApiService.shortUserInfo(id).then(function(res){
-					chipCtrl.user = res.data;
+				ApiService.users.show(id).then(function(res){
+					$scope.user = res.data;
 				});
 			};
 
@@ -18,8 +18,8 @@ function userChip() {
 		controllerAs: 'chipCtrl',
 		template: [
 			'<div class="chip">',
-				'<img ng-src="{{chipCtrl.user.img.tiny}}">',
-				'<ng-transclude></ng-transclude>{{chipCtrl.user.name}}',
+				'<img ng-src="{{user.img.tiny}}">',
+				'<ng-transclude></ng-transclude>{{user.name}}',
 			'</div>',
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {

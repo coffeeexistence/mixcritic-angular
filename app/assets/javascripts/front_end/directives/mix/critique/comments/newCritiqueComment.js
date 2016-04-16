@@ -12,28 +12,33 @@ function newCritiqueComment() {
 				$scope.critique = critique;
 
 				ctrl.comment = {
-					critique_id: critique.id,
-					body: 'hi',
-					user_id: UserService.session.user.id
+					body: ''
 				};
 
 			};
 
-
+			$scope.session = UserService.session;
 
 			$scope.currentUserName = UserService.currentUserName();
 
 			ctrl.post = function(event){
 				event.preventDefault();
 				console.log('‘Clicked!’');
-				ApiService.newCritiqueComment(ctrl.comment).then();
+				routeParams = {
+					critique: $scope.critique.id,
+					revision: $scope.critique.revision_id
+				};
+				ApiService.critiqueComments.create(routeParams, ctrl.comment).then(function(res){
+					$scope.$parent.loadComments();
+				});
 			};
 
   	},
 		controllerAs: 'NewCommentCtrl',
 		template: [
 			'<ul class="collection">',
-				'<form class="collection-item">',
+				'<li ng-if="!session.loggedIn" class="collection-item">Log in or Register to comment</li>',
+				'<form ng-if="session.loggedIn" class="collection-item">',
 					'<p>Write comment as {{currentUserName}}:</p>',
 					'<input ng-model="NewCommentCtrl.comment.body" type="text" name="body>">',
 					'<input ng-click="NewCommentCtrl.post($event);" type="submit" name="submit">',

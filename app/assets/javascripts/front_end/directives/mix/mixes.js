@@ -7,7 +7,7 @@ function mixes() {
 			var mixes =  this;
 
 			mixes.loadMixes = function(){
-				ApiService.topMixes().then(function(res){
+				ApiService.mixes.index().then(function(res){
 					mixes.mixes = res.data;
 				});
 			}

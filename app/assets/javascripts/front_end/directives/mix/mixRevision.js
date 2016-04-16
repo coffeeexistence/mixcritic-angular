@@ -9,7 +9,7 @@ function mixRevision() {
 			ctrl.show = false;
 
 			ctrl.load = function(id){
-				ApiService.getRevision(id).then(function(res){
+				ApiService.revisions.show(id).then(function(res){
 					$scope.revision = res.data;
 					ctrl.id = id;
 					ctrl.show = true;

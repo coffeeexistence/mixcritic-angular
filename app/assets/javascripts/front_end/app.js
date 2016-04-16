@@ -23,7 +23,7 @@ angular
             controllerAs: 'MixCtrl',
             resolve: {
               mix: function (ApiService, $stateParams) {
-                return ApiService.getMix($stateParams.id);
+                return ApiService.mixes.show($stateParams.id);
               }
             }
           })
