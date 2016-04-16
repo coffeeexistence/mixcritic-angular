@@ -1,17 +1,29 @@
 function ApiService($http){
   var service = this;
 
-  service.topMixes = function(){
-    return $http.get('/api/mixes');
+  service.mixes = {
+    index:  function() { return $http.get('/api/mixes.json') },
+    create: function(data) { return $http.post('/api/mixes.json', data) },
+    show:   function(id) { return $http.get('/api/mixes/'+id+'.json') },
   };
 
-  service.getMix = function(id){
-    return $http.get('/api/mix/'+id);
+  service.revisions = {
+    show:   function(id) { return $http.get('/api/revision/'+id+'.json'); }
   };
 
-  service.getRevision = function(id){
-    return $http.get('/api/revision/'+id);
+  service.critiques = {
+    index:  function(ids) { return $http.get('/api/revision/'+ids.revision+'/critiques.json'); },
+    show:   function(ids) { return $http.get('/api/revision/'+ids.revision+'/critiques/'+ids.critique+'.json'); },
+    create: function(ids, data) { return $http.post('/api/revision/'+ids.revision+'/critiques.json', data); }
   };
+
+  service.critiqueComments = {
+    index:  function(ids) { return $http.get('/api/revision/'+ids.revision+'/critiques/'+ids.critique+'/comments.json'); },
+    show:   function(ids) { return $http.get('/api/revision/'+ids.revision+'/critiques/'+ids.critique+'/comments/'+ids.comment+'.json'); },
+    create: function(ids, data) { return $http.post('/api/revision/'+ids.revision+'/critiques/'+ids.critique+'/comments.json'); }
+  };
+
+
 
   service.shortUserInfo = function(id){
     return $http.get('/api/short_user_info/'+id);
