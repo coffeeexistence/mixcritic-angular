@@ -25,7 +25,7 @@ class MixesController < ApplicationController
   end
 
   def update
-    @mix=Mix.find(params[:id])
+    @mix=mix.find(params[:id])
     if @mix.save
       first_revision=@mix.revisions.create
       mix_file=params['mix_file']

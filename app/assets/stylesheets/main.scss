@@ -92,12 +92,27 @@ hr {
   font-size: 1.25em;
 }
 
+.search-bar {
+  padding:0.5em;
+  margin-bottom:0px;
+}
+
 .mix-link {
   display:block;
   margin-bottom:0.5em;
   margin-top:0.5em;
   .mix-title{ font-size: 1.75em; }
   word-wrap:break-word;
+}
+
+.slightly-rounded-border {
+    border-radius: 5px;
+    border: 1px solid #D2D2D2;
+}
+
+.rounded-border {
+    border-radius: 10px;
+    border: 1px solid #D2D2D2;
 }
 
 .show-user {

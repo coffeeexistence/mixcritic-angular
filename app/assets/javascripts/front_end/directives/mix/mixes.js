@@ -6,19 +6,29 @@ function mixes() {
 		controller: function(ApiService, $attrs, $scope, $sce){
 			var mixes =  this;
 
-			mixes.loadMixes = function(){
+			$scope.search = {
+				stringQuery: '',
+				genre_id: '',
+				sortBy: 'id'
+			};
+
+			mixes.loadData = function(){
 				ApiService.mixes.index().then(function(res){
 					mixes.mixes = res.data;
 				});
+				ApiService.genres.index().then(function(res){
+					$scope.genres = res.data;
+				});
 			}
 
-			mixes.loadMixes();
+			mixes.hello = function(){
+				debugger;
+			};
+
+			mixes.loadData();
   	},
 		controllerAs: 'mixes',
-		template: [
-				'<div class="medium-text thin-text">People looking for constructive feedback:</div>',
-				'<mix-preview ng-repeat="mix in mixes.mixes" mix="mix"></mix-preview>'
-		].join('')
+		templateUrl: 'mix/mix_index.tpl.html'
 
 	};
 }
