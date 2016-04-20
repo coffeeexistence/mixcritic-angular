@@ -8,10 +8,7 @@ function ApiService($http, Upload){
   service.mixes = {
     index:  function() { return $http.get('/api/mixes.json') },
     create: function(data) { return $http.post('/api/mixes.json', data) },
-    show:   function(id) { return $http.get('/api/mixes/'+id+'.json') },
-    create: function(formData) {
-      return Upload.upload({url: '/api/mixes.json', data: formData});
-    }
+    show:   function(id) { return $http.get('/api/mixes/'+id+'.json') }
   }
 
   service.revisions = {

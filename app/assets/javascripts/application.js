@@ -20,5 +20,6 @@
 //= require angular-devise/lib/devise
 //= require angular-materialize/src/angular-materialize
 //= require ng-file-upload/ng-file-upload-all
+//= require angular-messages/angular-messages
 //= require_tree ./templates
 //= require_tree .

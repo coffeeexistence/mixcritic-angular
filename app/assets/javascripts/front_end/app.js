@@ -1,5 +1,5 @@
 angular
-    .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload'])
+    .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload', 'ngMessages'])
       .config(function($stateProvider, $urlMatcherFactoryProvider){
         $urlMatcherFactoryProvider.strictMode(false);
         $stateProvider
