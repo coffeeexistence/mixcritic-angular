@@ -18,5 +18,7 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
 //= require angular-devise/lib/devise
+//= require angular-materialize/src/angular-materialize
+//= require ng-file-upload/ng-file-upload-all
 //= require_tree ./templates
 //= require_tree .

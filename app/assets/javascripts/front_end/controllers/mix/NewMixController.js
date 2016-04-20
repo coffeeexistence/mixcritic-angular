@@ -1,15 +1,10 @@
-function NewMixController(ApiService){
+function NewMixController(ApiController, $scope, upload){
 	var ctrl = this;
 
-	ctrl.show = true; //Fix later
+	ctrl.submit = function(){
 
-	ctrl.fetchGenres = function() {
-		ApiService.getGenres().then(function(res){
-			ctrl.genres = res.data;
-			ctrl.show = true;
-		});
 	};
-  //debugger;
+
 }
 
 angular

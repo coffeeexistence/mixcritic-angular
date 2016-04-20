@@ -16,7 +16,7 @@ class MixesController < ApplicationController
     @mix=current_user.mixes.new(mix_params)
     if @mix.save
       first_revision=@mix.revisions.create
-      mix_file=params['mix_submission']['mix_file']
+      mix_file=params['mix_file']
       S3Uploadable.upload_file(file:mix_file, for_object: first_revision)
       render json: {success: true, mix_id: @mix.id}
     else
@@ -28,7 +28,7 @@ class MixesController < ApplicationController
     @mix=Mix.find(params[:id])
     if @mix.save
       first_revision=@mix.revisions.create
-      mix_file=params['mix_submission']['mix_file']
+      mix_file=params['mix_file']
       S3Uploadable.upload_file(file:mix_file, for_object: first_revision)
       render json: {success: true, mix_id: @mix.id}
     else

@@ -18,7 +18,8 @@ function critiqueComments() {
 				routeParams = {
 					revision: $scope.critique.revision_id,
 					critique: $scope.critique.id
-				}
+				};
+				
 				ApiService.critiqueComments.index(routeParams).then(function(res){
 					$scope.comments = res.data
 					ctrl.show = true;

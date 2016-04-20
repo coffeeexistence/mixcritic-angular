@@ -29,6 +29,7 @@ function newCritiqueComment() {
 					revision: $scope.critique.revision_id
 				};
 				ApiService.critiqueComments.create(routeParams, ctrl.comment).then(function(res){
+					ctrl.comment.body = '';
 					$scope.$parent.loadComments();
 				});
 			};
@@ -36,12 +37,12 @@ function newCritiqueComment() {
   	},
 		controllerAs: 'NewCommentCtrl',
 		template: [
-			'<ul class="collection">',
+			'<ul class="collection row">',
 				'<li ng-if="!session.loggedIn" class="collection-item">Log in or Register to comment</li>',
-				'<form ng-if="session.loggedIn" class="collection-item">',
-					'<p>Write comment as {{currentUserName}}:</p>',
-					'<input ng-model="NewCommentCtrl.comment.body" type="text" name="body>">',
-					'<input ng-click="NewCommentCtrl.post($event);" type="submit" name="submit">',
+				'<form name="commentForm" ng-if="session.loggedIn" class="collection-item">',
+					'<span>Write comment as {{currentUserName}}:</span>',
+					'<input class="col s10" ng-model="NewCommentCtrl.comment.body" type="text" name="body>" required>',
+					'<input ng-disabled="commentForm.$invalid" class="col s2 btn" ng-click="NewCommentCtrl.post($event);" type="submit" name="submit">',
 				'</form>',
 			'</ul>'
 		].join(''),

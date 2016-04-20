@@ -17,7 +17,7 @@ function critiqueForm() {
 			};
   	},
 		controllerAs: 'RevCtrl',
-		templateUrl: 'mix/critique/critique_form_template.html',
+		templateUrl: 'mix/critique/critique_form.tpl.html',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('revision', function (rev) {
 	        if (rev!==undefined) {ctrl.load(rev); console.log(rev); }

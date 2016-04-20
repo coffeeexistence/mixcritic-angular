@@ -24,7 +24,7 @@ function mixPreview() {
 
   	},
 		controllerAs: 'mixCtrl',
-		templateUrl: 'mixes/mix_preview_template.html'
+		templateUrl: 'mixes/mix_preview.tpl.html'
 	};
 }
 

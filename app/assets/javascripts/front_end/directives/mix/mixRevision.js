@@ -21,7 +21,7 @@ function mixRevision() {
 			};
   	},
 		controllerAs: 'RevCtrl',
-		templateUrl: 'mix/revision_template.html',
+		templateUrl: 'mix/revision.tpl.html',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('id', function (id) {
 	        if (id!==undefined) {ctrl.load(id); console.log(id); }
