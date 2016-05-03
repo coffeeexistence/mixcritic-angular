@@ -32,10 +32,6 @@ function ApiService($http, Upload){
   };
 
 
-  service.newCritiqueComment = function(comment){
-    return $http.post('/api/critique_comment', {critique_comment: comment});
-  };
-
 
 };
 
