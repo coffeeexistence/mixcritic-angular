@@ -1,6 +1,6 @@
 angular
     .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload', 'ngMessages'])
-      .config(function($stateProvider, $urlMatcherFactoryProvider){
+      .config(['$stateProvider', '$urlMatcherFactoryProvider', function($stateProvider, $urlMatcherFactoryProvider){
         $urlMatcherFactoryProvider.strictMode(false);
         $stateProvider
 
@@ -12,7 +12,7 @@ angular
           .state('new_mix', {
             url: '/mix/new',
             template: '<new-mix></new-mix>',
-            controller: function($scope, genres) {$scope.genres = genres.data},
+            controller: ['$scope', function($scope, genres) {$scope.genres = genres.data}],
             resolve: {
               genres: function(ApiService) {
                 return ApiService.genres.index();
@@ -26,9 +26,9 @@ angular
             controller: 'MixController',
             controllerAs: 'MixCtrl',
             resolve: {
-              mix: function (ApiService, $stateParams) {
+              mix: ['ApiService', '$stateParams', function (ApiService, $stateParams) {
                 return ApiService.mixes.show($stateParams.id);
-              }
+              }]
             }
           })
 
@@ -46,4 +46,4 @@ angular
             controllerAs: 'LoginCtrl'
           });
 
-        });
+        }]);

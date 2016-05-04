@@ -28,7 +28,7 @@ function mixes() {
 			mixes.loadData();
   	}],
 		controllerAs: 'mixes',
-		templateUrl: 'mix/mix_index.tpl.html'
+		templateUrl: 'mix/mix_index_tpl.html'
 
 	};
 }

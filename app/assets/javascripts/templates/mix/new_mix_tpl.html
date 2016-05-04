@@ -1,0 +1,72 @@
+<div class="rounded-border z-depth-1" >
+
+  <form name="mixForm" class="collection-item" style="padding: 1.25em;" novalidate>
+    <h2 style="margin-top: 3px;">New Mix</h2>
+   <div class="row">
+
+      <div class="input-field col s8">
+          <input
+            size="97"
+            type="text"
+            name="title"
+            ng-model="newMix.title"
+            ng-minlength="10"
+            required>
+
+          <label for="title" class="">Mix Title</label>
+
+      </div>
+
+      <div class="input-field col s4">
+        <select
+            material-select watch
+            ng-model="newMix.genre_id"
+            ng-options="genre.id as genre.name for genre in genres"
+            required >
+          <option value="" selected hidden>Please Select A Genre</option>
+        </select>
+        <label>Genre: </label>
+      </div>
+
+    </div>
+
+    <div class="row">
+        <div class="input-field col s12">
+            <textarea
+              cols="100"
+              rows="10"
+              class="materialize-textarea"
+              name="description"
+              ng-model="newMix.description"
+              ng-minlength="20"
+              required></textarea>
+            <label for="description" class="">Mix Description</label>
+        </div>
+    </div>
+
+
+    <div class="row">
+      <div class="file-field input-field col s6">
+        <div class="btn">
+          <span>Audio</span>
+          <input type="file" name="mixFile" onchange="angular.element(this).scope().setFile(this)" accept="audio/*" required>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+    </div>
+
+
+    <button ng-disabled="mixForm.$invalid || !mixFile" ng-click="NewMixCtrl.submit()" name="commit" value="Submit Mix" class="btn">Submit Mix</button>
+
+    <div ng-if="loadingBar"  id="new-mix-progress-bar">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+
+  </form>
+
+
+</div>

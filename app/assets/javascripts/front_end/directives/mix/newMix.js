@@ -22,7 +22,7 @@ function newMix() {
 
   	}],
 		controllerAs: 'NewMixCtrl',
-		templateUrl: 'mix/new_mix.tpl.html',
+		templateUrl: 'mix/new_mix_tpl.html',
 	};
 }
 

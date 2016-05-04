@@ -1,0 +1,38 @@
+<div class="medium-text thin-text">People looking for constructive feedback:</div>
+
+<div class="slightly-rounded-border vertical-pillowed">
+  <div class="row valign-wrapper search-bar">
+
+    <div class="col s3 valign">
+      <select
+          material-select watch
+          ng-model="search.genre_id"
+          ng-options="genre.id as genre.name for genre in genres"
+          required >
+        <option value="" selected hidden>All Genres</option>
+      </select>
+    </div>
+
+    <div class="col s3 valign">
+      <select material-select ng-model="search.sortBy">
+        <option value="-id" selected>Newest</option>
+        <option value="id">Oldest</option>
+        <option value="views">Most Viewed</option>
+        <option value="-critique_count">Most Critiqued</option>
+      </select>
+    </div>
+
+    <div class="col s3 valign">
+      <input ng-model="search.stringQuery" placeholder="Search" />
+    </div>
+
+    <div class="col s3 valign">
+
+    </div>
+  </div>
+</div>
+
+
+<mix-preview
+  ng-repeat="mix in mixes.mixes | orderBy: search.sortBy | mixIndex: search"
+  mix="mix"></mix-preview>

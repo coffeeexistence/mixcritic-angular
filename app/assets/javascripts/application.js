@@ -20,5 +20,6 @@
 //= require angular-materialize/src/angular-materialize
 //= require ng-file-upload/ng-file-upload-all
 //= require angular-messages/angular-messages
+
 //= require_tree ./templates
 //= require_tree ./front_end
