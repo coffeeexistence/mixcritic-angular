@@ -1,10 +1,13 @@
 class MixesController < ApplicationController
+  respond_to :json
 
   require 'concerns/s3-uploadable'
   extend S3Uploadable
 
   def index
-    render json: Mix.all.order(id: :desc)
+    respond_to do |format|
+      format.json {render json: Mix.all.order(id: :desc)}
+    end
   end
 
   def show

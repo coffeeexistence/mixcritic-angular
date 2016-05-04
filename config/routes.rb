@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   scope '/api' do
     resources :users_data, only: [:show]
 
-    resources :mixes, only: [:index, :create, :show, :update]
+    resources :mixes, only: [:index, :create, :show, :update], defaults: {format: :json}
 
     resources :genres, only: [:index]
 

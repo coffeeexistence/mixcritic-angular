@@ -22,7 +22,7 @@ angular
 
           .state('mix', {
             url: '/mix/:id',
-            templateUrl: 'mix/mix.tpl.html',
+            templateUrl: 'mix/mix_tpl.html',
             controller: 'MixController',
             controllerAs: 'MixCtrl',
             resolve: {
@@ -34,14 +34,14 @@ angular
 
           .state('session_register', {
             url: '/register',
-            templateUrl: 'auth/session_register.tpl.html',
+            templateUrl: 'auth/session_register_tpl.html',
             controller: 'RegistrationController',
             controllerAs: 'RegCtrl'
           })
 
           .state('session_new', {
             url: '/login',
-            templateUrl: 'auth/session_new.tpl.html',
+            templateUrl: 'auth/session_new_tpl.html',
             controller: 'LoginController',
             controllerAs: 'LoginCtrl'
           });

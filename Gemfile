@@ -46,6 +46,8 @@ gem 'bower-rails'
 
 gem 'angular-rails-templates', '>=1.0'
 
+gem 'responders'
+
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
 end
