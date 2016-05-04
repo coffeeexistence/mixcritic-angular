@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module MixCritic
   class Application < Rails::Application
 
+    
+
     config.active_record.raise_in_transactional_callbacks = true
 
     AWS.config(
