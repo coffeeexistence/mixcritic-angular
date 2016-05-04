@@ -4,7 +4,7 @@ function critiqueForm() {
 		scope: {
 			revision: '='
 		},
-		controller: function(ApiService, $sce, Auth){
+		controller: ['ApiService', '$sce', 'Auth', function(ApiService, $sce, Auth){
 			var ctrl =  this;
 			ctrl.show = false;
 
@@ -15,7 +15,7 @@ function critiqueForm() {
 				});
 
 			};
-  	},
+  	}],
 		controllerAs: 'RevCtrl',
 		templateUrl: 'mix/critique/critique_form.tpl.html',
 		link: function(scope, elem, attrs, ctrl) {

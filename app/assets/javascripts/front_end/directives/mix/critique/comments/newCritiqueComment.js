@@ -4,7 +4,7 @@ function newCritiqueComment() {
 		scope: {
 			critique: '='
 		},
-		controller: function(ApiService, $sce, $scope, UserService){
+		controller: ['ApiService', '$sce', '$scope', 'UserService', function(ApiService, $sce, $scope, UserService){
 			var ctrl =  this;
 			ctrl.show = false;
 
@@ -34,7 +34,7 @@ function newCritiqueComment() {
 				});
 			};
 
-  	},
+  	}],
 		controllerAs: 'NewCommentCtrl',
 		template: [
 			'<ul class="collection row">',

@@ -1,4 +1,4 @@
-function ApiService($http, Upload){
+function ApiService($http){
   var service = this;
 
   service.users = {

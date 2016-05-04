@@ -2,7 +2,7 @@ function sessionActions () {
 	return {
 		restrict: 'E',
 		require: '^MainCtrl',
-		controller: function($scope, $state, Auth, Alert){
+		controller: ['$scope', '$state', 'Auth', 'Alert', function($scope, $state, Auth, Alert){
       var ctrl = this;
 
       ctrl.logout = function(){
@@ -19,7 +19,7 @@ function sessionActions () {
           $state.go('mixes');
       });
 
-  	},
+  	}],
 		controllerAs: 'SessionActionsCtrl',
 		template: [
       '<div ng-if="MainCtrl.loggedIn">',

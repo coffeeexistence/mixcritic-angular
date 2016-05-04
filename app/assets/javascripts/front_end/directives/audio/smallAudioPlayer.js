@@ -4,7 +4,7 @@ function smallAudioPlayer() {
 		scope: {
 			url: '='
 		},
-		controller: function($sce){
+		controller: ['$sce', function($sce){
 			var ctrl =  this;
 			ctrl.show = false;
 
@@ -13,7 +13,7 @@ function smallAudioPlayer() {
 				ctrl.show = true;
 				//console.log('loaded');
 			};
-  	},
+  	}],
 		controllerAs: 'smallAudioCtrl',
 		template: [
 			'<div class="audio" ng-if="smallAudioCtrl.show">',

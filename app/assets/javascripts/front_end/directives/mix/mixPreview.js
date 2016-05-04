@@ -5,7 +5,7 @@ function mixPreview() {
 			mix: '=',
 		},
 		require: '^mixes',
-		controller: function($attrs, $scope, $filter){
+		controller: ['$attrs', '$scope', '$filter', function($attrs, $scope, $filter){
 			var mixCtrl =  this;
 
 			mixCtrl.expanded = false;
@@ -22,7 +22,7 @@ function mixPreview() {
 				mixCtrl.expanded = true;
 			};
 
-  	},
+  	}],
 		controllerAs: 'mixCtrl',
 		templateUrl: 'mixes/mix_preview.tpl.html'
 	};

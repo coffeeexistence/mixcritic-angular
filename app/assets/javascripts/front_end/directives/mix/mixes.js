@@ -3,7 +3,7 @@ function mixes() {
 		restrict: 'E',
 		scope: {
 		},
-		controller: function(ApiService, $attrs, $scope, $sce){
+		controller: ['ApiService', '$attrs', '$scope',' $sce', function(ApiService, $attrs, $scope, $sce){
 			var mixes =  this;
 
 			$scope.search = {
@@ -26,7 +26,7 @@ function mixes() {
 			};
 
 			mixes.loadData();
-  	},
+  	}],
 		controllerAs: 'mixes',
 		templateUrl: 'mix/mix_index.tpl.html'
 

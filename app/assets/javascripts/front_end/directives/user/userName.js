@@ -5,7 +5,7 @@ function userName() {
 			userId: '='
 		},
 		transclude: true,
-		controller: function(ApiService, $scope, $filter, $attrs){
+		controller: ['ApiService', '$scope', '$filter', '$attrs', function(ApiService, $scope, $filter, $attrs){
 			var chipCtrl =  this;
 
 			chipCtrl.load = function(id){
@@ -14,7 +14,7 @@ function userName() {
 				});
 			};
 
-  	},
+  	}],
 		controllerAs: 'nameCtrl',
 		template: '{{nameCtrl.user.name}}<ng-transclude></ng-transclude>',
 		link: function(scope, elem, attrs, ctrl) {

@@ -35,4 +35,4 @@ function RegistrationController(Auth, $http, $scope, Alert, $state){
 
 angular
 	.module('app')
-	.controller('RegistrationController', RegistrationController);
+	.controller('RegistrationController', ['Auth', '$http', '$scope', 'Alert', '$state', RegistrationController]);

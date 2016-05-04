@@ -4,7 +4,7 @@ function mixRevision() {
 		scope: {
 			id: '='
 		},
-		controller: function(ApiService, $sce, $scope){
+		controller: ['ApiService', '$sce', '$scope', function(ApiService, $sce, $scope){
 			var ctrl =  this;
 			ctrl.show = false;
 
@@ -15,11 +15,8 @@ function mixRevision() {
 					ctrl.show = true;
 					console.log($scope.revision);
 				});
-
-
-
 			};
-  	},
+  	}],
 		controllerAs: 'RevCtrl',
 		templateUrl: 'mix/revision.tpl.html',
 		link: function(scope, elem, attrs, ctrl) {

@@ -26,4 +26,4 @@ function LoginController(Auth, $http, $scope, Alert, $state){
 
 angular
 	.module('app')
-	.controller('LoginController', LoginController);
+	.controller('LoginController', ['Auth', '$http', '$scope', 'Alert', '$state', LoginController]);

@@ -1,4 +1,4 @@
-function NewMixController(ApiController, $scope, upload){
+function NewMixController(){
 	var ctrl = this;
 
 	ctrl.submit = function(){

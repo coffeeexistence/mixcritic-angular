@@ -13,7 +13,6 @@
 //= require jquery
 //= require materialize-sprockets
 //= require angular/angular
-//= require angular/angular
 //= require angular-sanitize/angular-sanitize
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
@@ -22,4 +21,4 @@
 //= require ng-file-upload/ng-file-upload-all
 //= require angular-messages/angular-messages
 //= require_tree ./templates
-//= require_tree .
+//= require_tree ./front_end

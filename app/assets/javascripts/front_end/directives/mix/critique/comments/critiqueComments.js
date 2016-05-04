@@ -4,7 +4,7 @@ function critiqueComments() {
 		scope: {
 			critique: '='
 		},
-		controller: function(ApiService, $sce, $scope){
+		controller: ['ApiService', '$sce', '$scope', function(ApiService, $sce, $scope){
 			var ctrl =  this;
 			ctrl.show = false;
 
@@ -19,13 +19,13 @@ function critiqueComments() {
 					revision: $scope.critique.revision_id,
 					critique: $scope.critique.id
 				};
-				
+
 				ApiService.critiqueComments.index(routeParams).then(function(res){
 					$scope.comments = res.data
 					ctrl.show = true;
 				});
 			};
-  	},
+  	}],
 		controllerAs: 'CommentsCtrl',
 		template: [
 			'<hr class="slim">',

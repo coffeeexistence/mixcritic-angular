@@ -57,4 +57,4 @@ function MainController($scope, Auth, UserService){
 
 angular
 	.module('app')
-	.controller('MainController', MainController);
+	.controller('MainController', ['$scope', 'Auth', 'UserService', MainController]);

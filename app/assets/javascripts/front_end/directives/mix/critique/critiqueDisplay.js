@@ -4,7 +4,7 @@ function critiqueDisplay() {
 		scope: {
 			critique: '='
 		},
-		controller: function(ApiService, $sce, Auth){
+		controller: ['ApiService', '$sce', 'Auth', function(ApiService, $sce, Auth){
 			var ctrl =  this;
 			ctrl.show = false;
 
@@ -12,7 +12,7 @@ function critiqueDisplay() {
 				ctrl.critique = critique;
 				ctrl.show = true;
 			};
-  	},
+  	}],
 		controllerAs: 'CritiqueCtrl',
 		template: [
 			'<div class="container">',

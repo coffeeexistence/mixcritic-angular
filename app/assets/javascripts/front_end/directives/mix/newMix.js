@@ -1,7 +1,7 @@
 function newMix() {
 	return {
 		restrict: 'E',
-		controller: function(ApiService, $scope, Upload, $state){
+		controller: ['ApiService', '$scope', 'Upload', '$state', function(ApiService, $scope, Upload, $state){
 			var ctrl =  this;
 
 			$scope.loadingBar = false;
@@ -20,7 +20,7 @@ function newMix() {
 					});
 			};
 
-  	},
+  	}],
 		controllerAs: 'NewMixCtrl',
 		templateUrl: 'mix/new_mix.tpl.html',
 	};

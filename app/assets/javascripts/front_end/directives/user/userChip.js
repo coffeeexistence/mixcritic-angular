@@ -5,7 +5,7 @@ function userChip() {
 			userId: '='
 		},
 		transclude: true,
-		controller: function(ApiService, $scope){
+		controller: ['ApiService', '$scope', function(ApiService, $scope){
 			var chipCtrl =  this;
 
 			chipCtrl.load = function(id){
@@ -14,7 +14,7 @@ function userChip() {
 				});
 			};
 
-  	},
+  	}],
 		controllerAs: 'chipCtrl',
 		template: [
 			'<div class="chip">',

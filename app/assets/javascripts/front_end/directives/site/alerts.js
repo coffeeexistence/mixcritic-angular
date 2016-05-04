@@ -3,7 +3,7 @@ function alerts() {
 		restrict: 'E',
 		scope: {
 		},
-		controller: function($scope, $rootScope, $timeout){
+		controller: ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout){
       var ctrl = this;
 
       $scope.alerts = {
@@ -25,7 +25,7 @@ function alerts() {
         ctrl.addAlert(data);
       });
 
-  	},
+  	}],
 		controllerAs: 'AlertsCtrl',
 		template: [
       '<div class="card grey lighten-5" ng-show="alerts.show()">',
