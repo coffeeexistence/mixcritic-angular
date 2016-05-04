@@ -3,7 +3,7 @@ function mixes() {
 		restrict: 'E',
 		scope: {
 		},
-		controller: ['ApiService', '$attrs', '$scope',' $sce', function(ApiService, $attrs, $scope, $sce){
+		controller: ['ApiService', '$attrs', '$scope','$sce', function(ApiService, $attrs, $scope, $sce){
 			var mixes =  this;
 
 			$scope.search = {
