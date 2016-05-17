@@ -16,7 +16,7 @@ class MixesController < ApplicationController
   end
 
   def create
-    @mix=current_user.mixes.new(mix_params)
+    @mix=current_user.mixes.new(mix_params) # have mix.newMix handle line 20-25
     if @mix.save
       first_revision=@mix.revisions.create
       mix_file=params['mix_file']
