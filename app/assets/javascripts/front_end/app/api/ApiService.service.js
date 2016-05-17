@@ -18,7 +18,7 @@ function ApiService($http){
   service.critiques = {
     index:  function(ids) { return $http.get('/api/revisions/'+ids.revision+'/critiques.json'); },
     show:   function(ids) { return $http.get('/api/revisions/'+ids.revision+'/critiques/'+ids.critique+'.json'); },
-    create: function(ids, data) { return $http.post('/api/revisions/'+ids.revision+'/critiques.json', data); }
+    create: function(id, data) { return $http.post('/api/revisions/'+id+'/critiques.json', data); }
   };
 
   service.critiqueComments = {

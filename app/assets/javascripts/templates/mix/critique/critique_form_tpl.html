@@ -1,1 +1,8 @@
-I AM A FORM
+<ul class="collection row">
+  <li ng-if="!session.loggedIn" class="collection-item">Log in or Register to comment</li>
+  <form name="critiqueForm" ng-if="session.loggedIn" class="collection-item">
+    <span>Write critique as {{currentUserName}}:</span>
+    <input class="col s10" ng-model="critique.body" type="text" name="body>" required>
+    <input ng-disabled="critiqueForm.$invalid" class="col s2 btn" ng-click="NewCritiqueCtrl.post($event);" type="submit" name="submit">
+  </form>
+</ul>

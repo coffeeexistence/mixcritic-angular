@@ -2,7 +2,8 @@ function critiqueDisplay() {
 	return {
 		restrict: 'E',
 		scope: {
-			critique: '='
+			critique: '=',
+			reloadCritiques: '&'
 		},
 		controller: ['ApiService', '$sce', 'Auth', function(ApiService, $sce, Auth){
 			var ctrl =  this;

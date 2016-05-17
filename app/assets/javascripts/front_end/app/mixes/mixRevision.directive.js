@@ -15,6 +15,12 @@ function mixRevision() {
 					ctrl.show = true;
 					console.log($scope.revision);
 				});
+
+				$scope.reloadCritiques = function(){
+					console.log('going to reload critiques');
+					ctrl.load($scope.revision.id);
+				};
+
 			};
   	}],
 		controllerAs: 'RevCtrl',

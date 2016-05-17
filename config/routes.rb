@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index]
 
     resources :revisions, only: [:show, :update, :create] do
-      resources :critiques, only: [:show, :index] do #revision provides critique index
+      resources :critiques, only: [:show, :index, :create] do #revision provides critique index
         post '/comments/batch', to: 'critique_comments#batch'
         resources :critique_comments, only: [:index, :create, :show], path: 'comments', as: 'comments'
       end
