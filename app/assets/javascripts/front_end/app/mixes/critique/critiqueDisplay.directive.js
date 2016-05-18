@@ -5,18 +5,28 @@ function critiqueDisplay() {
 			critique: '=',
 			reloadCritiques: '&'
 		},
-		controller: ['ApiService', '$sce', 'Auth', function(ApiService, $sce, Auth){
+		controller: ['ApiService', '$sce', 'Auth', '$scope', '$document', function(ApiService, $sce, Auth, $scope, $document){
 			var ctrl =  this;
 			ctrl.show = false;
 
 			ctrl.load = function(critique){
-				ctrl.critique = critique;
+				// ctrl.critique = critique;
 				ctrl.show = true;
 			};
+
+			ctrl.focus = function(){
+				var offset = 30;
+				var duration = 1000;
+				var critiqueElement = angular.element(document.getElementById('critique-'+$scope.critique.id));
+				// var top = $(critiqueElement).offset().top;
+				$document.duScrollTo(critiqueElement, offset, duration);
+			};
+
   	}],
 		controllerAs: 'CritiqueCtrl',
 		template: [
-			'<div class="container">',
+			'<div id="critique-{{critique.id}}" class="container">',
+			'<button ng-click="CritiqueCtrl.focus()">focus</button>',
 			  '<div class="critique hoverable z-depth-1">',
 			    '<div class="blue-grey lighten-4">',
 			     '<user-chip user-id="critique.critic_id"></user-chip>',
@@ -28,7 +38,10 @@ function critiqueDisplay() {
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('critique', function (crit) {
-	        if (crit!==undefined) {ctrl.load(crit); console.log(crit); }
+	        if (crit!==undefined) { ctrl.load(crit) }
+	    });
+			scope.$watch('critique.focus', function (focus) {
+	        if (focus===true) {ctrl.focus(); console.log('focusing'); }
 	    });
 		}
 	};

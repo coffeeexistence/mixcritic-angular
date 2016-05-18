@@ -12,6 +12,10 @@ function critiqueForm() {
 			$scope.session = UserService.session;
 			$scope.currentUserName = UserService.currentUserName();
 
+			$scope.critique = {
+				body: ''
+			};
+
 			ctrl.load = function(id){
 					ctrl.show = true;
 			};
@@ -20,9 +24,9 @@ function critiqueForm() {
 				event.preventDefault();
 				console.log('‘Clicked!’');
 
-				ApiService.critiques.create($scope.revision.id, ctrl.critique).then(function(res){
-					ctrl.comment.body = '';
-					$scope.$parent.loadComments();
+				ApiService.critiques.create($scope.revision.id, {critique: $scope.critique}).then(function(res){
+					$scope.critique.body = '';
+					$scope.$parent.reloadCritiques(res.data.id); //Tells parent to focus on critique with new critique's id
 				});
 			};
 

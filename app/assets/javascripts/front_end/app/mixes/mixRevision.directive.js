@@ -4,25 +4,33 @@ function mixRevision() {
 		scope: {
 			id: '='
 		},
-		controller: ['ApiService', '$sce', '$scope', function(ApiService, $sce, $scope){
-			var ctrl =  this;
-			ctrl.show = false;
+		controller: ['ApiService', '$sce', '$scope', '$document', '$timeout', '$filter',
+			function(ApiService, $sce, $scope, $document, $timeout, $filter){
+				var ctrl =  this;
+				ctrl.show = false;
 
-			ctrl.load = function(id){
-				ApiService.revisions.show(id).then(function(res){
-					$scope.revision = res.data;
-					ctrl.id = id;
-					ctrl.show = true;
-					console.log($scope.revision);
-				});
-
-				$scope.reloadCritiques = function(){
-					console.log('going to reload critiques');
-					ctrl.load($scope.revision.id);
+				ctrl.scrollToCritique = function(id) {
+					var critique = $filter('filter')($scope.revision.critiques, {id: id})[0]
+					debugger;
+					critique.focus = true;
 				};
 
-			};
-  	}],
+				ctrl.load = function(id, scrollToCritique){
+					ApiService.revisions.show(id).then(function(res){
+						$scope.revision = res.data;
+						ctrl.id = id;
+						ctrl.show = true;
+						console.log($scope.revision);
+						if(scrollToCritique) { ctrl.scrollToCritique(scrollToCritique) }
+					});
+				};
+
+				$scope.reloadCritiques = function(scrollToCritique){
+					console.log('going to reload critiques');
+					ctrl.load($scope.revision.id, scrollToCritique);
+				};
+
+	  	}],
 		controllerAs: 'RevCtrl',
 		templateUrl: 'mix/revision_tpl.html',
 		link: function(scope, elem, attrs, ctrl) {

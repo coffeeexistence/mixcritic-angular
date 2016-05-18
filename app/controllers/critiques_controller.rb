@@ -10,12 +10,13 @@ class CritiquesController < ApplicationController
   end
 
   def create
-    revision = Revision.find(params[:revision_id])
-    critique = revision.critiques.new(critique_params)
+    critique = current_user.critiques.new(critique_params)
+    critique.revision_id = params[:revision_id]
 
-    if @critique.save
-      render json: {success: true}
+    if critique.save
+      render json: {success: true, id: critique.id}
     else
+      byebug
       render json: {success: false}
     end
   end
@@ -23,7 +24,7 @@ class CritiquesController < ApplicationController
   private
 
     def critique_params
-      params.require(:critique).permit(:body, :critic_id)
+      params.require(:critique).permit(:body)
     end
 
 

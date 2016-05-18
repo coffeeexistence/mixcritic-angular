@@ -25,7 +25,7 @@ function smallAudioPlayer() {
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('url', function (url) {
-	        if (url!==undefined) {ctrl.load(url); console.log(url); }
+	        if (url!==undefined) {ctrl.load(url); }
 	    });
 		}
 	};

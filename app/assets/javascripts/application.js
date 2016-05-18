@@ -10,16 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require materialize-sprockets
+
+
+
 //= require angular/angular
 //= require angular-sanitize/angular-sanitize
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates
 //= require angular-devise/lib/devise
-//= require angular-materialize/src/angular-materialize
 //= require ng-file-upload/ng-file-upload-all
 //= require angular-messages/angular-messages
+//= require angular-scroll/angular-scroll
+
+//= require jquery2
+//= require materialize-sprockets
+//= require angular-materialize/src/angular-materialize
+
 
 //= require_tree ./templates
 //= require_tree ./front_end
