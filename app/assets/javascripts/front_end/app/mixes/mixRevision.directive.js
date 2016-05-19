@@ -11,7 +11,6 @@ function mixRevision() {
 
 				ctrl.scrollToCritique = function(id) {
 					var critique = $filter('filter')($scope.revision.critiques, {id: id})[0]
-					debugger;
 					critique.focus = true;
 				};
 

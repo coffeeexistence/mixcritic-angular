@@ -5,28 +5,29 @@ function critiqueDisplay() {
 			critique: '=',
 			reloadCritiques: '&'
 		},
-		controller: ['ApiService', '$sce', 'Auth', '$scope', '$document', function(ApiService, $sce, Auth, $scope, $document){
+		controller: ['ApiService', '$sce', 'Auth', '$scope', 'smoothScroll', '$stateParams', '$timeout',
+		function(ApiService, $sce, Auth, $scope, smoothScroll, $stateParams, $timeout){
 			var ctrl =  this;
 			ctrl.show = false;
 
-			ctrl.load = function(critique){
-				// ctrl.critique = critique;
-				ctrl.show = true;
+			ctrl.focus = function(){
+				$timeout(function() {
+					var critiqueElement = document.getElementById('critique-'+$scope.critique.id);
+					console.log('scrolling to critique '+$scope.critique.id);
+					smoothScroll(critiqueElement);
+				});
 			};
 
-			ctrl.focus = function(){
-				var offset = 30;
-				var duration = 1000;
-				var critiqueElement = angular.element(document.getElementById('critique-'+$scope.critique.id));
-				// var top = $(critiqueElement).offset().top;
-				$document.duScrollTo(critiqueElement, offset, duration);
-			};
+			if ($stateParams.critique_id) {
+				if ($stateParams.critique_id == $scope.critique.id) {
+					ctrl.focus();
+				}
+			}
 
   	}],
 		controllerAs: 'CritiqueCtrl',
 		template: [
 			'<div id="critique-{{critique.id}}" class="container">',
-			'<button ng-click="CritiqueCtrl.focus()">focus</button>',
 			  '<div class="critique hoverable z-depth-1">',
 			    '<div class="blue-grey lighten-4">',
 			     '<user-chip user-id="critique.critic_id"></user-chip>',
@@ -37,9 +38,6 @@ function critiqueDisplay() {
 			'</div>'
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
-			scope.$watch('critique', function (crit) {
-	        if (crit!==undefined) { ctrl.load(crit) }
-	    });
 			scope.$watch('critique.focus', function (focus) {
 	        if (focus===true) {ctrl.focus(); console.log('focusing'); }
 	    });

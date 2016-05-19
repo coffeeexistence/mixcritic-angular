@@ -1,5 +1,5 @@
 angular
-    .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload', 'ngMessages', 'duScroll'])
+    .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload', 'ngMessages', 'smoothScroll'])
       .config(['$stateProvider', '$urlMatcherFactoryProvider', function($stateProvider, $urlMatcherFactoryProvider){
         $urlMatcherFactoryProvider.strictMode(false);
         $stateProvider
@@ -22,6 +22,18 @@ angular
 
           .state('mix', {
             url: '/mix/:id',
+            templateUrl: 'mix/mix_tpl.html',
+            controller: 'MixController',
+            controllerAs: 'MixCtrl',
+            resolve: {
+              mix: ['ApiService', '$stateParams', function (ApiService, $stateParams) {
+                return ApiService.mixes.show($stateParams.id);
+              }]
+            }
+          })
+
+          .state('critique', {
+            url: '/mix/:id/critique/:critique_id',
             templateUrl: 'mix/mix_tpl.html',
             controller: 'MixController',
             controllerAs: 'MixCtrl',

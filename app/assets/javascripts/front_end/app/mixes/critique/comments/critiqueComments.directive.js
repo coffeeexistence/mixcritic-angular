@@ -41,7 +41,7 @@ function critiqueComments() {
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('critique', function (critique) {
-	        if (critique!==undefined) {ctrl.load(critique); console.log(critique); }
+	        if (critique!==undefined) {ctrl.load(critique)}
 	    });
 		}
 	};
