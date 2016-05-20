@@ -1,0 +1,15 @@
+<div class="col s12">
+  <div>
+    <h5><a class="grey-text" ui-sref="mix({id:critique.mix_info.id})">{{critique.mix_info.title}}</a></h5>
+    <small-audio-player url="critique.revision_audio_path"></small-audio-player>
+  </div>
+  <div ng-if="show" id="critique-{{critique.id}}" class="row ">
+    <div class="critique hoverable">
+      <div class="blue-grey lighten-4">
+       <user-chip user-id="critique.critic_id"></user-chip>
+      </div>
+      <div class="critique-body">{{critique.body}}</div>
+      <critique-comments critique="critique"></critique-comments>
+    </div>
+  </div>
+</div>
