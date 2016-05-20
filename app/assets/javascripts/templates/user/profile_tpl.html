@@ -13,10 +13,10 @@
         <h5>Recent Critiques</h5>
       </div>
       <div class="collection-item">
-        <div dir-paginate="critId in critiqueIds | itemsPerPage: 3">
+        <div dir-paginate="critId in critiqueIds | itemsPerPage: 3" pagination-id="critiques">
           <standalone-critique-display critiqueid="critId"></standalone-critique-display>
         </div>
-        <dir-pagination-controls template-url="site/pagination_tpl.html"></dir-pagination-controls>
+        <dir-pagination-controls pagination-id="critiques" template-url="site/pagination_tpl.html"></dir-pagination-controls>
       </div>
     </div>
   </div>
@@ -26,8 +26,12 @@
       <div class="collection-item blue-grey lighten-5">
         <h5>Recent Mixes</h5>
       </div>
-
+      <div class="collection-item">
+        <div dir-paginate="mixId in mixIds | itemsPerPage: 3" pagination-id="mixes">
+          <mix-preview-by-id mixid="mixId"></mix-preview-by-id>
+        </div>
+        <dir-pagination-controls pagination-id="mixes" template-url="site/pagination_tpl.html"></dir-pagination-controls>
+      </div>
     </div>
   </div>
-
 </div>
