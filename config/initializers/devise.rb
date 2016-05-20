@@ -264,7 +264,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.secret_key = ENV["DEVISE_SECRET_KEY"]
   config.omniauth :facebook, ENV["FB_APP_ID"], ENV["FB_APP_SECRET"],
-    callback_url: "http://localhost:3000/users/auth/facebook/callback",
+    callback_url: "http://www.mix-critic.com/users/auth/facebook/callback",
     image_size: { width: 500, height: 500 }, secure_image_url: true
 
 
