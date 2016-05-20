@@ -8,6 +8,7 @@
     "angular-materialize": "latest",
     "ng-file-upload": "latest",
     "angular-messages": "latest",
-    "ngSmoothScroll": "latest"
+    "ngSmoothScroll": "latest",
+    "angular-utils-pagination": "latest"
   }
 }

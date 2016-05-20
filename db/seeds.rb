@@ -6,22 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-help_topics = [ "Snare", "Drums", "Mic Positioning", "Vocals", "Guitar Tone", "Mastering", 
-  "Compression", "Bass Guitar", "Orchestra", "Synthesizers", "EQ", "Sound Field", "Reverb", "Delay", 
+help_topics = [ "Snare", "Drums", "Mic Positioning", "Vocals", "Guitar Tone", "Mastering",
+  "Compression", "Bass Guitar", "Orchestra", "Synthesizers", "EQ", "Sound Field", "Reverb", "Delay",
   "Gating"]
 
-genres = ["Acoustic", "Alternative", "Blues", "Classical", "Country", 
+genres = ["Acoustic", "Alternative", "Blues", "Classical", "Country",
   "Electronic", "Hip Hop" ,"Jazz" ,"Latin" ,"Metal", "Pop", "Rock"]
 
 puts "Creating Genres and Help Topics"
 
-genres.each do |genre| 
-  Genre.find_or_create_by(name:genre) 
-end 
+genres.each do |genre|
+  Genre.find_or_create_by(name:genre)
+end
 
-help_topics.each do |topic| 
-  HelpTopic.find_or_create_by(name:topic) 
-end 
+help_topics.each do |topic|
+  HelpTopic.find_or_create_by(name:topic)
+end
 
 
 
@@ -41,7 +41,7 @@ def create_mix_for_user(user)
 
   new_upload=Upload.create(url:'https://mixcritic.s3.amazonaws.com/DoopaLoopaLoop.mp3')
   mix_revision=Revision.create
-  
+
   mix_revision.upload=new_upload
   mix_revision.mix = new_mix
   new_mix.revisions << mix_revision
@@ -52,7 +52,12 @@ end
 
 10.times do
   user_creds = {
-    full_name: Faker::Name.name , 
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    title: Faker::Name.title,
+    bio: Faker::Hipster.paragraph,
+    city: Faker::Address.city,
+    country: Faker::Address.country,
     email: Faker::Internet.email,
     password: Faker::Internet.password(8),
     avatar: Faker::Avatar.image
@@ -99,7 +104,7 @@ end
 
 puts "Writing Critiques"
 
-10.times do 
+10.times do
   critique_mix(critics.sample)
 end
 

@@ -2,7 +2,10 @@ function ApiService($http){
   var service = this;
 
   service.users = {
-    show:   function(id) { return $http.get('/api/users_data/'+id+'.json'); }
+    show:   function(id) { return $http.get('/api/users/'+id+'.json'); },
+    profile:   function(id) { return $http.get('/api/users/'+id+'/profile.json'); },
+    critiques: function(id) { return $http.get('/api/users/'+id+'/critiques.json'); },
+    mixes: function(id) { return $http.get('/api/users/'+id+'/mixes.json'); },
   };
 
   service.mixes = {
@@ -17,7 +20,7 @@ function ApiService($http){
 
   service.critiques = {
     index:  function(ids) { return $http.get('/api/revisions/'+ids.revision+'/critiques.json'); },
-    show:   function(ids) { return $http.get('/api/revisions/'+ids.revision+'/critiques/'+ids.critique+'.json'); },
+    show:   function(id) { return $http.get('/api/critiques/'+id+'.json'); },
     create: function(id, data) { return $http.post('/api/revisions/'+id+'/critiques.json', data); }
   };
 

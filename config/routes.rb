@@ -4,17 +4,23 @@ Rails.application.routes.draw do
   root 'front_end#index'
 
   scope '/api' do
-    resources :users_data, only: [:show]
+    resources :users, only: [:show] do
+      get '/profile', to: 'users#profile'
+      get '/critiques', to: 'users#critiques'
+      get '/mixes', to: 'users#mixes'
+    end
 
     resources :mixes, only: [:index, :create, :show, :update], defaults: {format: :json}
 
     resources :genres, only: [:index]
 
     resources :revisions, only: [:show, :update, :create] do
-      resources :critiques, only: [:show, :index, :create] do #revision provides critique index
-        post '/comments/batch', to: 'critique_comments#batch'
-        resources :critique_comments, only: [:index, :create, :show], path: 'comments', as: 'comments'
-      end
+
+    end
+
+    resources :critiques, only: [:show, :index, :create] do #revision provides critique index
+      post '/comments/batch', to: 'critique_comments#batch'
+      resources :critique_comments, only: [:index, :create, :show], path: 'comments', as: 'comments'
     end
 
   end

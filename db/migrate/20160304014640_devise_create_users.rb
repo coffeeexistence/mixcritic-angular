@@ -3,7 +3,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
 
       t.string :username
-      t.string :full_name
+      t.string :first_name
+      t.string :last_name
+      t.string :title
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -21,6 +23,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :last_sign_in_at
       t.string   :current_sign_in_ip
       t.string   :last_sign_in_ip
+
+      t.text :bio
+
+      t.string :city
+      t.string :state
+      t.string :country
+
+      t.integer :points
 
       ## Confirmable
       # t.string   :confirmation_token

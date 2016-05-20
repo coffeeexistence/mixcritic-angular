@@ -1,5 +1,6 @@
 angular
-    .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload', 'ngMessages', 'smoothScroll'])
+    .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload',
+      'ngMessages', 'smoothScroll', 'angularUtils.directives.dirPagination'])
       .config(['$stateProvider', '$urlMatcherFactoryProvider', function($stateProvider, $urlMatcherFactoryProvider){
         $urlMatcherFactoryProvider.strictMode(false);
         $stateProvider
@@ -40,6 +41,18 @@ angular
             resolve: {
               mix: ['ApiService', '$stateParams', function (ApiService, $stateParams) {
                 return ApiService.mixes.show($stateParams.id);
+              }]
+            }
+          })
+
+          .state('userProfile', {
+            url: '/user/:id',
+            templateUrl: 'user/profile_tpl.html',
+            controller: 'UserProfileController',
+            controllerAs: 'ProfileCtrl',
+            resolve: {
+              user: ['ApiService', '$stateParams', function (ApiService, $stateParams) {
+                return ApiService.users.profile($stateParams.id);
               }]
             }
           })

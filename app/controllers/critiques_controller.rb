@@ -1,5 +1,5 @@
 class CritiquesController < ApplicationController
-  before_action :authenticate_user!
+
 
   def index
     render json: Revision.find(params[:revision_id]).critiques
@@ -10,6 +10,7 @@ class CritiquesController < ApplicationController
   end
 
   def create
+    authenticate_user!
     critique = current_user.critiques.new(critique_params)
     critique.revision_id = params[:revision_id]
 

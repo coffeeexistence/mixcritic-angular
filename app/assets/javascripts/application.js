@@ -9,6 +9,7 @@
 //= require ng-file-upload/ng-file-upload-all
 //= require angular-messages/angular-messages
 //= require ngSmoothScroll/lib/angular-smooth-scroll
+//= require angular-utils-pagination/dirPagination
 
 //= require angular-materialize/src/angular-materialize
 

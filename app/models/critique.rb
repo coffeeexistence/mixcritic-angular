@@ -12,4 +12,12 @@ class Critique < ActiveRecord::Base
     self.critic.available_name
   end
 
+  def mix_info
+    {title: self.revision.mix.title, id: self.revision.mix.id}
+  end
+
+  def revision_audio_path
+    self.revision.upload.url
+  end
+
 end

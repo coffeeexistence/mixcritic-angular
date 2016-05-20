@@ -40,7 +40,27 @@ class User < ActiveRecord::Base
     end
   end
 
+  def full_name
+    return false if (!self.first_name || !self.last_name)
+    self.first_name + ' ' + self.last_name
+  end
 
+  def image_paths
+    {
+      tiny: self.avatar.url(:tiny),
+      thumb: self.avatar.url(:thumb),
+      small: self.avatar.url(:small),
+      medium: self.avatar.url(:medium)
+    }
+  end
+
+  def critiques_index
+    self.critiques.pluck('id')
+  end
+
+  def mixes_index
+    self.mixes.pluck('id')
+  end
 
 
   ###############OMNIAUTH####################
@@ -49,6 +69,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
+      byebug
       user.full_name = auth.info.name   # assuming the user model has a name
       #user.image = auth.info.image # assuming the user model has an image
     end
