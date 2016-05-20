@@ -19,7 +19,9 @@ function userChip() {
 		template: [
 			'<div class="chip">',
 				'<img ng-src="{{user.img.tiny}}">',
-				'<ng-transclude></ng-transclude>{{user.name}}',
+				'<a ui-sref="userProfile({id: user.id})"',
+					'<ng-transclude></ng-transclude>{{user.name}}',
+				'</a>',
 			'</div>',
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
