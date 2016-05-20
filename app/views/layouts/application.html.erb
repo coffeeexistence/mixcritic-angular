@@ -14,20 +14,18 @@
         <div class="valign"><%= link_to (image_tag('main/logo-revised.png', class:'smaller-img')), root_path %></div>
       </div>
       <div class="col s4 valign-wrapper">
-        <div class="text-center">
+        <div class="centered">
          <button class="waves-effect btn-flat btn-large" ui-sref="new_mix"><i class="material-icons left">add</i>New Mix</a>
          <button class="waves-effect btn-flat btn-large" ui-sref="mixes"><i class="material-icons left">album</i>Mixes</a>
         </div>
       </div>
       <div class="col s4 valign-wrapper">
-        <session-actions></session-actions>
+        <session-actions class="centered"></session-actions>
       </div>
     </div>
   </div>
   <hr class="thin-hr">
 
-
-  <br><br>
   <div class="container">
   <alerts></alerts>
       <%= yield %>

@@ -22,13 +22,13 @@ function sessionActions () {
   	}],
 		controllerAs: 'SessionActionsCtrl',
 		template: [
-      '<div ng-if="MainCtrl.loggedIn">',
+      '<div ng-if="MainCtrl.loggedIn" >',
         '<user-chip user-id="MainCtrl.user.id"></user-chip>',
         '  <a href="" class="grey-text" ng-click="SessionActionsCtrl.logout()">Log out</a>',
       '</div>',
       '<div ng-if="!MainCtrl.loggedIn">',
-        '<a href="" ui-sref="session_new">Log in</a><br />',
-        '<a href="" ui-sref="session_register">Register</a>',
+        '<a href="" ui-sref="session_new" class="primary-color-text">Login</a> - ',
+        '<a href="" ui-sref="session_register" class="primary-color-text">Register</a>',
       '</div>'
 		].join('')
 
