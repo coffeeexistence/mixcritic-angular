@@ -1,8 +1,10 @@
 angular
     .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload',
       'ngMessages', 'smoothScroll', 'angularUtils.directives.dirPagination'])
-      .config(['$stateProvider', '$urlMatcherFactoryProvider', function($stateProvider, $urlMatcherFactoryProvider){
+      .config(['$stateProvider', '$urlMatcherFactoryProvider', '$urlRouterProvider',
+      function($stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider){
         $urlMatcherFactoryProvider.strictMode(false);
+        $urlRouterProvider.otherwise('');
         $stateProvider
 
           .state('mixes', {
@@ -10,10 +12,15 @@ angular
             template: '<mixes></mixes>'
           })
 
+          .state('facebookLoginSuccessful', {
+            url: '/_=_',
+            template: '<mixes></mixes>'
+          })
+
           .state('new_mix', {
             url: '/mix/new',
             template: '<new-mix></new-mix>',
-            controller: ['$scope', function($scope, genres) {$scope.genres = genres.data}],
+            controller: ['$scope', 'genres', function($scope, genres) {$scope.genres = genres.data}],
             resolve: {
               genres: function(ApiService) {
                 return ApiService.genres.index();

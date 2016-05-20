@@ -62,6 +62,20 @@ class User < ActiveRecord::Base
     self.mixes.pluck('id')
   end
 
+  def set_full_name(name)
+    split_name = name.split(' ')
+    if split_name.length >= 2
+      self.first_name = split_name[0]
+      self.last_name = split_name[1]
+    else
+      self.username = auth.info.name
+    end
+  end
+
+  def picture_from_url(url)
+    self.avatar = URI.parse(url)
+  end
+
 
   ###############OMNIAUTH####################
 
@@ -69,8 +83,8 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      byebug
-      user.full_name = auth.info.name   # assuming the user model has a name
+      user.set_full_name(auth.info.name)   # assuming the user model has a name
+      user.picture_from_url(auth.info.image)
       #user.image = auth.info.image # assuming the user model has an image
     end
   end

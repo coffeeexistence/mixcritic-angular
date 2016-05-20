@@ -15,7 +15,7 @@
       </div>
       <div class="col s4 valign-wrapper">
         <div class="centered">
-         <button class="waves-effect btn-flat btn-large" ui-sref="new_mix"><i class="material-icons left">add</i>New Mix</a>
+         <button class="waves-effect btn-flat btn-large" ng-class="{disabled: !MainCtrl.loggedIn}" ui-sref="new_mix"><i class="material-icons left">add</i>New Mix</a>
          <button class="waves-effect btn-flat btn-large" ui-sref="mixes"><i class="material-icons left">album</i>Mixes</a>
         </div>
       </div>

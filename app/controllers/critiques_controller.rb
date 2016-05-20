@@ -17,7 +17,6 @@ class CritiquesController < ApplicationController
     if critique.save
       render json: {success: true, id: critique.id}
     else
-      byebug
       render json: {success: false}
     end
   end
