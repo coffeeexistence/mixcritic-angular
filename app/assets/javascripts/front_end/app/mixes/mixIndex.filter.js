@@ -13,9 +13,9 @@ function mixIndex(){
           match(search.genre_id, mix.genre.id)
           &&
           (
-            mix.title.toLowerCase().includes(search.stringQuery.toLowerCase())
+            mix.title.toLowerCase().indexOf(search.stringQuery.toLowerCase()) >= 0
             ||
-            mix.description.toLowerCase().includes(search.stringQuery.toLowerCase())
+            mix.description.toLowerCase().indexOf(search.stringQuery.toLowerCase()) >= 0
           )
         );
 
