@@ -1,7 +1,26 @@
 
+.mix-preview-outer {
+  margin: 2em 1em 2em 1em; //Top right bottom left
 
+}
 
+.mix-preview-chip {
+  margin-bottom: -20px;
+}
 
+.mix-preview-secondary-row {
+  position: relative;
+}
+
+.mix-preview-info {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.mix-preview-expandable-section {
+  padding-left: 11px;
+}
 
 .revision {
   @extend .semi-pillowed
@@ -13,8 +32,8 @@
 
 .critique {
   @extend .center-block;
-  @extend .card; 
-  
+  @extend .card;
+
 }
 
 .critique-header {
@@ -22,8 +41,8 @@
 }
 
 .critique-subheader {
-  
-  
+
+
 }
 
 .critique-body {
@@ -33,4 +52,3 @@
 .subsection {
   margin:2em;
 }
-
