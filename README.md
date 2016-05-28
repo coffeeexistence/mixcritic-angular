@@ -64,7 +64,7 @@ $scope.$on('devise:login', function(event, currentUser) {
       user: currentUser
     });
 });
-    ```
+```
 ####Reading Session Data
   You can check to see if you are logged in with `UserService.session.loggedIn`
 
