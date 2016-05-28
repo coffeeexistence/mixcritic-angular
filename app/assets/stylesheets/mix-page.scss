@@ -5,18 +5,24 @@
 }
 
 .mix-preview-chip {
-  margin-bottom: -20px;
+
 }
 
 .mix-preview-secondary-row {
   position: relative;
 }
 
-.mix-preview-info {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.mix-preview-border {
+  border-radius: 5px;
+  border: 1px solid #D2D2D2;
+  padding: 0.4em;
 }
+
+.mix-preview-left {
+  height: 100%;
+}
+
+
 
 .mix-preview-expandable-section {
   padding-left: 11px;

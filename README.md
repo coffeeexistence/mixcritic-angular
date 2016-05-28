@@ -57,12 +57,14 @@
   This is meant to be used in conjunction with the angular-devise authentication module.
 
 ####Adding new session data
+    ```javascript
     $scope.$on('devise:login', function(event, currentUser) {
         UserService.changeSession({
           loggedIn: true,
           user: currentUser
         });
     });
+    ```
 ####Reading Session Data
   You can check to see if you are logged in with `UserService.session.loggedIn`
 
