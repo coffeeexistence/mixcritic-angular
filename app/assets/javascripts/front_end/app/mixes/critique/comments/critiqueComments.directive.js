@@ -8,7 +8,7 @@ function critiqueComments() {
 			var ctrl =  this;
 			ctrl.show = false;
 
-			$scope.session = UserService.session;
+			$scope.session = Session.session;
 
 			ctrl.load = function(critique){
 				$scope.critique = critique;

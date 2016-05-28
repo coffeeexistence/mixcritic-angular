@@ -5,12 +5,12 @@ function critiqueForm() {
 			revision: '=',
 			reloadCritiques: '&'
 		},
-		controller: ['$scope', 'ApiService', '$sce', 'Auth', 'UserService', function($scope, ApiService, $sce, Auth, UserService){
+		controller: ['$scope', 'ApiService', '$sce', 'Auth', 'Session', function($scope, ApiService, $sce, Auth, Session){
 			var ctrl =  this;
 			ctrl.show = false;
 
-			$scope.session = UserService.session;
-			$scope.currentUserName = UserService.currentUserName();
+			$scope.session = Session.session;
+			$scope.currentUserName = Session.currentUserName();
 
 			$scope.critique = {
 				body: ''

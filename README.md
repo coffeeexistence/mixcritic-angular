@@ -51,15 +51,15 @@
 ####Genres
   `ApiService.genres.index();`
 
-###UserService
-  UserService is where the current user data can be accessed and modified.
+###Session
+  Session is where the current user data can be accessed and modified.
 
   This is meant to be used in conjunction with the angular-devise authentication module.
 
 ####Adding new session data
     ```javascript
     $scope.$on('devise:login', function(event, currentUser) {
-        UserService.changeSession({
+        Session.changeSession({
           loggedIn: true,
           user: currentUser
         });

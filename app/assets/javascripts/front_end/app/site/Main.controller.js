@@ -1,4 +1,4 @@
-function MainController($scope, Auth, UserService){
+function MainController($scope, Auth, Session){
 	var ctrl = this;
 	ctrl.loggedIn = false;
 
@@ -8,7 +8,7 @@ function MainController($scope, Auth, UserService){
             ctrl.user = user;
 						ctrl.loggedIn = true;
 
-						UserService.changeSession({
+						Session.changeSession({
 							loggedIn: true,
 							user: user
 						});
@@ -16,7 +16,7 @@ function MainController($scope, Auth, UserService){
         }, function(error) {
 						ctrl.loggedIn = false;
 
-						UserService.changeSession({
+						Session.changeSession({
 							loggedIn: false
 						});
         });
@@ -26,7 +26,7 @@ function MainController($scope, Auth, UserService){
 			ctrl.loggedIn = true;
 			ctrl.user = currentUser;
 
-			UserService.changeSession({
+			Session.changeSession({
 				loggedIn: true,
 				user: currentUser
 			});
@@ -37,7 +37,7 @@ function MainController($scope, Auth, UserService){
 			ctrl.loggedIn = true;
 			ctrl.user = currentUser;
 
-			UserService.changeSession({
+			Session.changeSession({
 				loggedIn: true,
 				user: currentUser
 			});
@@ -47,7 +47,7 @@ function MainController($scope, Auth, UserService){
       ctrl.loggedIn = false;
 			ctrl.user = {};
 
-			UserService.changeSession({
+			Session.changeSession({
 				loggedIn: false
 			});
 
@@ -57,4 +57,4 @@ function MainController($scope, Auth, UserService){
 
 angular
 	.module('app')
-	.controller('MainController', ['$scope', 'Auth', 'UserService', MainController]);
+	.controller('MainController', ['$scope', 'Auth', 'Session', MainController]);

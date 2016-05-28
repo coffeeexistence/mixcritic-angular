@@ -1,10 +1,10 @@
 function newMix() {
 	return {
 		restrict: 'E',
-		controller: ['ApiService', '$scope', 'Upload', '$state', 'UserService', 'Alert',
-		function(ApiService, $scope, Upload, $state, UserService, Alert){
+		controller: ['ApiService', '$scope', 'Upload', '$state', 'Session', 'Alert',
+		function(ApiService, $scope, Upload, $state, Session, Alert){
 			var ctrl =  this;
-			if (!UserService.session.loggedIn){
+			if (!Session.session.loggedIn){
 				Alert.add("You must be logged in to do this.")
 				$state.go('mixes');
 			}

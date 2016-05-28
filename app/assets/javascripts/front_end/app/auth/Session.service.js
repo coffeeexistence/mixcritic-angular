@@ -1,4 +1,4 @@
-function UserService(){
+function Session(){
   var service = this;
 
   service.session = {
@@ -21,4 +21,4 @@ function UserService(){
 
 angular
   .module('app')
-  .service('UserService', UserService);
+  .service('Session', Session);

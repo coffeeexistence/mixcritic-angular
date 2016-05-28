@@ -4,7 +4,7 @@ function newCritiqueComment() {
 		scope: {
 			critique: '='
 		},
-		controller: ['ApiService', '$sce', '$scope', 'UserService', function(ApiService, $sce, $scope, UserService){
+		controller: ['ApiService', '$sce', '$scope', 'Session', function(ApiService, $sce, $scope, Session){
 			var ctrl =  this;
 			ctrl.show = false;
 
@@ -17,9 +17,9 @@ function newCritiqueComment() {
 
 			};
 
-			$scope.session = UserService.session;
+			$scope.session = Session.session;
 
-			$scope.currentUserName = UserService.currentUserName();
+			$scope.currentUserName = Session.currentUserName();
 
 			ctrl.post = function(event){
 				event.preventDefault();
