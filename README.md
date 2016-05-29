@@ -69,3 +69,13 @@ $scope.$on('devise:login', function(event, currentUser) {
   You can check to see if you are logged in with `UserService.session.loggedIn`
 
   Current user model data can be accessed through `UserService.session.user`
+
+####Users
+  The `Users` service is where user data is fetched from, it automatically caches the user requested which can drastically reduce the amount of requests to the back end.
+
+  How to fetch a user's data:
+  ```javascript
+  Users.find(id).then(function(user) {
+    $scope.user = user;
+  });
+  ```

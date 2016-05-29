@@ -1,4 +1,4 @@
-function userChip() {
+function userChip(Users) {
 	return {
 		restrict: 'E',
 		scope: {
@@ -9,9 +9,9 @@ function userChip() {
 			var chipCtrl =  this;
 
 			chipCtrl.load = function(id){
-				ApiService.users.show(id).then(function(res){
-					$scope.user = res.data;
-				});
+				 Users.find(id).then(function(user) {
+					 $scope.user = user;
+				 });
 			};
 
   	}],
@@ -34,4 +34,4 @@ function userChip() {
 
 angular
 	.module('app')
-	.directive('userChip', userChip);
+	.directive('userChip', ['Users', userChip]);
