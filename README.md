@@ -70,7 +70,7 @@ $scope.$on('devise:login', function(event, currentUser) {
 
   Current user model data can be accessed through `UserService.session.user`
 
-####Users
+###Users
   The `Users` service is where user data is fetched from, it automatically caches the user requested which can drastically reduce the amount of requests to the back end.
 
   How to fetch a user's data:
