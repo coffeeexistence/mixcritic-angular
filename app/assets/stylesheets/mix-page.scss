@@ -13,20 +13,65 @@
 }
 
 .mix-preview-border {
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid #D2D2D2;
-  padding: 0.4em;
+  padding: 1em 0.4em 1em 0.4em ;
 }
 
 .mix-preview-left {
   height: 100%;
 }
 
-
+.mix-preview-info {
+  bottom: 0;
+}
 
 .mix-preview-expandable-section {
   padding-left: 11px;
 }
+
+.write-critique {
+  @extend .default-button;
+  width: 100%;
+  @extend .slight-margin;
+}
+
+
+.signin-required {
+  @extend .default-button;
+  @extend .slight-margin;
+}
+
+.critique-form {
+  @extend .slight-margin;
+
+  * {
+    display:block;
+    @extend .slight-margin;
+  }
+
+  textarea {
+    width: 80%;
+  }
+
+  input[type=submit] {
+    @extend .default-button;
+  }
+}
+
+
+.mix-link {
+  display:block;
+  margin-bottom:0.5em;
+  margin-top:0.5em;
+  .mix-title{ font-size: 1.75em; }
+  word-wrap:break-word;
+}
+
+.mix-description {
+  @extend .slight-margin;
+}
+
 
 .revision {
   @extend .semi-pillowed

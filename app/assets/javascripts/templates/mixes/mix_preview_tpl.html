@@ -6,9 +6,8 @@
   <div class="mix-preview-border row mix-link">
 
     <div class="col s2 mix-preview-left">
-      <user-chip class="mix-preview-chip" user-id="mixCtrl.mix.user_id"></user-chip>
-      <hr />
-      <div class="mix-preview-info grey-text">
+      <user-card class="mix-preview-chip" user-id="mixCtrl.mix.user_id"></user-card>
+      <div class="mix-preview-info grey-text centered">
         <div class="col">{{mixCtrl.mix.views}} Views</div>
         <div class="col">{{mixCtrl.mix.critique_count}} Critiques</div>
       </div>
@@ -28,7 +27,7 @@
           <p ng-if="mixCtrl.expanded">{{mixCtrl.mix.description}}</p>
         </div></blockquote>
 
-        <div class="row mix-preview-secondary-row">
+        <div class="mix-preview-secondary-row">
 
           <div class="mix-preview-expandable-section">
             <button ng-show="!mixCtrl.expanded" ng-click="mixCtrl.expand();" class="btn btn-secondary btn-sm show-more">Show more</button>
