@@ -3,6 +3,15 @@ function ApiService($http){
 
   service.users = {
     show:   function(id) { return $http.get('/api/users/'+id+'.json'); },
+    showBatch: function(ids) {
+      return $http({
+          method: 'GET',
+          url: '/api/users/batch.json',
+          params: {
+            ids: JSON.stringify(ids) // ids is [1, 2, 3, 4]
+          }
+        });
+    },
     profile:   function(id) { return $http.get('/api/users/'+id+'/profile.json'); },
     critiques: function(id) { return $http.get('/api/users/'+id+'/critiques.json'); },
     mixes: function(id) { return $http.get('/api/users/'+id+'/mixes.json'); },

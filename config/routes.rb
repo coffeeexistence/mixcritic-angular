@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'front_end#index'
 
   scope '/api' do
-    resources :users, only: [:show] do
+    scope '/users' do
+      get '/batch', to: 'users#batch'
+      get '/:id', to: 'users#show'
       get '/profile', to: 'users#profile'
       get '/critiques', to: 'users#critiques'
       get '/mixes', to: 'users#mixes'
