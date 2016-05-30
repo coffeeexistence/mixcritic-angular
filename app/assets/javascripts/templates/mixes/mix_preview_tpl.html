@@ -31,7 +31,7 @@
 
           <div class="mix-preview-expandable-section">
             <button ng-show="!mixCtrl.expanded" ng-click="mixCtrl.expand();" class="btn btn-secondary btn-sm show-more">Show more</button>
-            <div ng-show="mixCtrl.expanded">
+            <div ng-if="mixCtrl.expanded">
               <small-audio-player url="mixCtrl.mix.current_revision_audio_path"></small-audio-player>
             </div>
           </div>
