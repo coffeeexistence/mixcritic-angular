@@ -9,8 +9,8 @@ function Users(ApiService, $q, $timeout){
     for (var id in newUsers) {
       var promise = pendingUsers[id];
       promise.resolve( userCache[id] );
+      delete pendingUsers[id];
     }
-    pendingUsers = [];
   };
 
   var fetchUsers = function () {
