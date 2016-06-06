@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/users' do
       get '/batch', to: 'users#batch'
-      get '/:id', to: 'users#show'
-      get '/profile', to: 'users#profile'
-      get '/critiques', to: 'users#critiques'
-      get '/mixes', to: 'users#mixes'
+      get '/:user_id/profile', to: 'users#profile'
+      get '/:user_id/critiques', to: 'users#critiques'
+      get '/:user_id/mixes', to: 'users#mixes'
+      get '/:user_id', to: 'users#show'
     end
 
     resources :mixes, only: [:index, :create, :show, :update], defaults: {format: :json}
