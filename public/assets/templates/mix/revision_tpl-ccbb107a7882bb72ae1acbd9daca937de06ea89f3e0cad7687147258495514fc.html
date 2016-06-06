@@ -1,0 +1,32 @@
+<div ng-if="RevCtrl.show" id="revision-<%= revision.id %>">
+
+  <ul class="collection">
+    <li class="collection-item blue-grey lighten-5">
+      <h5 class="sm-margins center-align thin-text">Current Revision</h5>
+    </li>
+    <li class="collection-item">
+          <div class="center-align">
+            <small-audio-player url="revision.upload.url"></small-audio-player>
+
+            <div ng-init="showForm=false"></div>
+            <button ng-click="showForm=true" class="btn">Write Critique</button><br />
+            <critique-form ng-if="showForm" revision="revision"></critique-form>
+
+          </div>
+
+    </li>
+
+    <li class="collection-item">
+      <div class="critiques">
+
+        <h5>Critiques:</h5>
+        <div class="hr-left"></div>
+
+        <div class='show-critiques'>
+            <critique-display ng-repeat="critique in revision.critiques" critique="critique"></critique-display>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+</div>
