@@ -51,9 +51,9 @@ function ApiService($http, ResourceManger){
   };
 
   service.critiqueComments = {
-    index:  function(ids) { return $http.get('/api/revisions/'+ids.revision+'/critiques/'+ids.critique+'/comments.json'); },
-    show:   function(ids) { return $http.get('/api/revisions/'+ids.revision+'/critiques/'+ids.critique+'/comments/'+ids.comment+'.json'); },
-    create: function(ids, data) { return $http.post('/api/revisions/'+ids.revision+'/critiques/'+ids.critique+'/comments.json', data); }
+    index:  function(ids) { return $http.get('/api/critiques/'+ids.critique+'/comments.json'); },
+    show:   function(ids) { return $http.get('/api/critiques/'+ids.critique+'/comments/'+ids.comment+'.json'); },
+    create: function(ids, data) { return $http.post('/api/critiques/'+ids.critique+'/comments.json', data); }
   };
 
   service.genres = {
