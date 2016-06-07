@@ -1,8 +1,20 @@
 function ApiService($http){
   var service = this;
 
+  var userCache = Cache.newWorker('users');
+  var userCollector = RequestCollect.create({
+    name: 'users', 
+    httpBatchRequest: service.users.showBatch, 
+    cache: userCache
+  });
+  
+
+  
   service.users = {
-    show:   function(id) { return $http.get('/api/users/'+id+'.json'); },
+    show:   function(id) { 
+      // return $http.get('/api/users/'+id+'.json'); 
+      return userCollector.find(id);
+    },
     showBatch: function(ids) {
       return $http({
           method: 'GET',
