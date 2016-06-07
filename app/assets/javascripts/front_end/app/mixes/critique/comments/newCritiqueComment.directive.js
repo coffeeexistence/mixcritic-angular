@@ -38,8 +38,8 @@ function newCritiqueComment() {
 		controllerAs: 'NewCommentCtrl',
 		template: [
 			'<ul class="collection row">',
-				'<li ng-if="!session.loggedIn" class="collection-item">Log in or Register to comment</li>',
-				'<form name="commentForm" ng-if="session.loggedIn" class="collection-item">',
+				'<li ng-if="!session.loggedIn()" class="collection-item">Log in or Register to comment</li>',
+				'<form name="commentForm" ng-if="session.loggedIn()" class="collection-item">',
 					'<span>Write comment as {{currentUserName}}:</span>',
 					'<input class="col s10" ng-model="NewCommentCtrl.comment.body" type="text" name="body>" required>',
 					'<input ng-disabled="commentForm.$invalid" class="col s2 btn" ng-click="NewCommentCtrl.post($event);" type="submit" name="submit">',

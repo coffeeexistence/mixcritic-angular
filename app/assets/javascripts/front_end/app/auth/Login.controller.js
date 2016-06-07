@@ -12,7 +12,7 @@ function LoginController(Auth, $http, $scope, Alert, $state){
 
 	ctrl.submit = function(){
 		Auth.login(ctrl.cred, config).then(function(registeredUser) {
-							Alert.add("Successfully Logged In");
+				Alert.add("Successfully Logged In");
 	        }, function(error) {
 	            Alert.add("Incorrect email or password");
 	        });

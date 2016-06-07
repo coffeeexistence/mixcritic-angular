@@ -1,10 +1,10 @@
-function RegistrationController(Auth, $http, $scope, Alert, $state){
+function RegistrationController(Auth, $http, $scope, Alert, $state, Session){
 	var ctrl = this;
 
 	ctrl.cred = {
 		email: '',
-    password: '',
-    password_confirmation: ''
+    	password: '',
+    	password_confirmation: ''
 	};
 
 	$scope.cred = ctrl.cred;
@@ -25,6 +25,7 @@ function RegistrationController(Auth, $http, $scope, Alert, $state){
 	ctrl.submit = function(){
 		Auth.register(ctrl.readyCredentials(), config).then(function(registeredUser) {
 							Alert.add("Successfully Registered");
+							Session.update(registeredUser);
 							$state.go('mixes');
 	        }, function(error) {
 	            Alert.add("Registration Unsuccessful");
@@ -35,4 +36,4 @@ function RegistrationController(Auth, $http, $scope, Alert, $state){
 
 angular
 	.module('app')
-	.controller('RegistrationController', ['Auth', '$http', '$scope', 'Alert', '$state', RegistrationController]);
+	.controller('RegistrationController', ['Auth', '$http', '$scope', 'Alert', '$state', 'Session', RegistrationController]);

@@ -4,7 +4,7 @@ function newMix() {
 		controller: ['ApiService', '$scope', 'Upload', '$state', 'Session', 'Alert',
 		function(ApiService, $scope, Upload, $state, Session, Alert){
 			var ctrl =  this;
-			if (!Session.session.loggedIn){
+			if (!Session.session.loggedIn()){
 				Alert.add("You must be logged in to do this.")
 				$state.go('mixes');
 			}
