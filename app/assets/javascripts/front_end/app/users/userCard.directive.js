@@ -1,4 +1,4 @@
-function userCard(Users) {
+function userCard() {
 	return {
 		restrict: 'E',
 		scope: {
@@ -9,7 +9,7 @@ function userCard(Users) {
 			var cardCtrl =  this;
 
 			cardCtrl.load = function(id){
-				 Users.find(id).then(function(user) {
+				 ApiService.users.show(id).then(function(user) {
 					 $scope.user = user;
 				 });
 			};
@@ -34,4 +34,4 @@ function userCard(Users) {
 
 angular
 	.module('app')
-	.directive('userCard', ['Users', userCard]);
+	.directive('userCard', [userCard]);

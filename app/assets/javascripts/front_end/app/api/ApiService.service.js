@@ -5,7 +5,7 @@ function ApiService($http, Cache, RequestCollect){
   
   service.userCollector = RequestCollect.create({
     name: 'users', 
-    httpBatchRequest: function(){
+    httpBatchRequest: function(ids){
       return $http({
           method: 'GET',
           url: '/api/users/batch.json',
