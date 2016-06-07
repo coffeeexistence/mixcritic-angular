@@ -2,6 +2,9 @@
 //= require materialize-sprockets
 
 //= require angular/angular
+
+//= require custom_ng_modules/ng-resource-manager
+
 //= require angular-sanitize/angular-sanitize
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-rails-templates

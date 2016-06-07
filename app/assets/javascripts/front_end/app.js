@@ -1,6 +1,15 @@
 angular
-    .module('app', ['templates', 'ngSanitize', 'ui.router', 'Devise', 'ui.materialize', 'ngFileUpload',
-      'ngMessages', 'smoothScroll', 'angularUtils.directives.dirPagination'])
+    .module('app', ['templates', 
+    'ngSanitize', 
+    'ui.router', 
+    'Devise', 
+    'ui.materialize', 
+    'ngFileUpload',
+     'ngMessages', 
+     'smoothScroll', 
+     'angularUtils.directives.dirPagination', 
+     'ng-resource-manager'
+     ])
       .config(['$stateProvider', '$urlMatcherFactoryProvider', '$urlRouterProvider',
       function($stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider){
         $urlMatcherFactoryProvider.strictMode(false);

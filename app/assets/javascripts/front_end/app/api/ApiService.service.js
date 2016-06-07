@@ -1,9 +1,7 @@
-function ApiService($http, Cache, RequestCollect){
+function ApiService($http, ResourceManger){
   var service = this;
-
-  var userCache = Cache.newWorker('users');
   
-  service.userCollector = RequestCollect.create({
+  service.userManager = ResourceManger.create({
     name: 'users', 
     httpBatchRequest: function(ids){
       return $http({
@@ -13,15 +11,14 @@ function ApiService($http, Cache, RequestCollect){
             ids: JSON.stringify(ids)
           }
         });
-    }, 
-    cache: userCache
+    }
   });
   
 
   
   service.users = {
     show:   function(id) { 
-      return service.userCollector.find(id);
+      return service.userManager.find(id);
     },
     showBatch: function(ids) {
       return $http({
@@ -69,4 +66,4 @@ function ApiService($http, Cache, RequestCollect){
 
 angular
   .module('app')
-  .service('ApiService', ['$http', 'Cache', 'RequestCollect', ApiService]);
+  .service('ApiService', ['$http', 'ResourceManager', ApiService]);
