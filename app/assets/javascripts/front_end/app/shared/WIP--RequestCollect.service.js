@@ -1,4 +1,4 @@
-function RequestCollect(ApiService, Cache, $q, $timeout){
+function RequestCollect(Cache, $q, $timeout){
     var service = this;
 
     //RequestCollect.newCollector('users', service.users.showBatch, cache);
@@ -58,4 +58,4 @@ function RequestCollect(ApiService, Cache, $q, $timeout){
 
 angular
   .module('app')
-  .service('RequestCollect', ['ApiService', 'Cache', '$q', '$timeout', RequestCollect]);
+  .service('RequestCollect', ['Cache', '$q', '$timeout', RequestCollect]);

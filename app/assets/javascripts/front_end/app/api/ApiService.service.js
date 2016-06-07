@@ -1,10 +1,19 @@
-function ApiService($http){
+function ApiService($http, Cache, RequestCollect){
   var service = this;
 
   var userCache = Cache.newWorker('users');
-  var userCollector = RequestCollect.create({
+  
+  service.userCollector = RequestCollect.create({
     name: 'users', 
-    httpBatchRequest: service.users.showBatch, 
+    httpBatchRequest: function(){
+      return $http({
+          method: 'GET',
+          url: '/api/users/batch.json',
+          params: {
+            ids: JSON.stringify(ids)
+          }
+        });
+    }, 
     cache: userCache
   });
   
@@ -12,15 +21,14 @@ function ApiService($http){
   
   service.users = {
     show:   function(id) { 
-      // return $http.get('/api/users/'+id+'.json'); 
-      return userCollector.find(id);
+      return service.userCollector.find(id);
     },
     showBatch: function(ids) {
       return $http({
           method: 'GET',
           url: '/api/users/batch.json',
           params: {
-            ids: JSON.stringify(ids) // ids is [1, 2, 3, 4]
+            ids: JSON.stringify(ids)
           }
         });
     },
@@ -61,4 +69,4 @@ function ApiService($http){
 
 angular
   .module('app')
-  .service('ApiService', ['$http', ApiService]);
+  .service('ApiService', ['$http', 'Cache', 'RequestCollect', ApiService]);
