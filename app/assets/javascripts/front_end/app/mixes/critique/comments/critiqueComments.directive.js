@@ -15,12 +15,7 @@ function critiqueComments() {
 			};
 
 			$scope.loadComments = function(){
-				routeParams = {
-					revision: $scope.critique.revision_id,
-					critique: $scope.critique.id
-				};
-
-				ApiService.critiqueComments.index(routeParams).then(function(res){
+				ApiService.critiqueComments.index($scope.critique.id).then(function(res){
 					$scope.comments = res.data
 					ctrl.show = true;
 				});
@@ -41,8 +36,8 @@ function critiqueComments() {
 		].join(''),
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch('critique', function (critique) {
-	        if (critique!==undefined) {ctrl.load(critique)}
-	    });
+	        	if (critique!==undefined) {ctrl.load(critique)}
+	   		 });
 		}
 	};
 }

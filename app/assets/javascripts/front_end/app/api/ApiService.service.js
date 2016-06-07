@@ -1,37 +1,28 @@
 function ApiService($http, ResourceManger){
   var service = this;
   
-  service.userManager = ResourceManger.create({
-    name: 'users', 
-    httpBatchRequest: function(ids){
+  var batchGetRequest = function(path) {
+    return function(idArray) {
       return $http({
           method: 'GET',
-          url: '/api/users/batch.json',
+          url: path,
           params: {
-            ids: JSON.stringify(ids)
+            ids: JSON.stringify(idArray)
           }
         });
-    }
+    };
+  };
+  
+  var userManager = ResourceManger.create({
+    name: 'users', 
+    httpBatchRequest: batchGetRequest('/api/users/batch.json')
   });
   
-
-  
   service.users = {
-    show:   function(id) { 
-      return service.userManager.find(id);
-    },
-    showBatch: function(ids) {
-      return $http({
-          method: 'GET',
-          url: '/api/users/batch.json',
-          params: {
-            ids: JSON.stringify(ids)
-          }
-        });
-    },
-    profile:   function(id) { return $http.get('/api/users/'+id+'/profile.json'); },
-    critiques: function(id) { return $http.get('/api/users/'+id+'/critiques.json'); },
-    mixes: function(id) { return $http.get('/api/users/'+id+'/mixes.json'); },
+    show:   function(id) { return userManager.find(id) },
+    profile:   function(id) { return $http.get('/api/users/'+id+'/profile.json') },
+    critiques: function(id) { return $http.get('/api/users/'+id+'/critiques.json') },
+    mixes: function(id) { return $http.get('/api/users/'+id+'/mixes.json') },
   };
 
   service.mixes = {
@@ -51,9 +42,9 @@ function ApiService($http, ResourceManger){
   };
 
   service.critiqueComments = {
-    index:  function(ids) { return $http.get('/api/critiques/'+ids.critique+'/comments.json'); },
+    index:  function(critiqueId) { return $http.get('/api/critiques/'+critiqueId+'/comments.json'); },
     show:   function(ids) { return $http.get('/api/critiques/'+ids.critique+'/comments/'+ids.comment+'.json'); },
-    create: function(ids, data) { return $http.post('/api/critiques/'+ids.critique+'/comments.json', data); }
+    create: function(critiqueId, data) { return $http.post('/api/critiques/'+critiqueId+'/comments.json', data); }
   };
 
   service.genres = {
