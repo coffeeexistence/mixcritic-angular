@@ -1,14 +1,15 @@
-function Users(ApiService, $q, $timeout){
+function Users(ApiService, Cache, $q, $timeout){
   var service = this;
   var pendingUsers = {};
-  var userCache = {};
+  // var userCache = {};
+  var cache = Cache.newWorker('users');
   var requestPending = false;
 
   var assimilate = function (newUsers) { // https://upload.wikimedia.org/wikipedia/en/a/a1/Picard_as_Locutus.jpg
-    angular.merge(userCache, newUsers);
+    cache.merge(newUsers);
     for (var id in newUsers) {
       var promise = pendingUsers[id];
-      promise.resolve( userCache[id] );
+      promise.resolve( cache.fetch(id) );
       delete pendingUsers[id];
     }
   };
@@ -33,18 +34,11 @@ function Users(ApiService, $q, $timeout){
     if (!requestPending) { pendRequest(); }
   };
 
-  var fetchUser = function (id) {
-    return ApiService.users.show(id).then(function(res){
-      userCache[id] = res.data;
-      return userCache[id];
-    });
-  };
-
   service.find = function (id) {
     var q = $q.defer();
 
-    if (userCache[id]) {
-      q.resolve(userCache[id]);
+    if (cache.exists(id)) {
+      q.resolve(cache.fetch(id));
     }
     else {
       addUserToQueue(id, q);
@@ -57,4 +51,4 @@ function Users(ApiService, $q, $timeout){
 
 angular
   .module('app')
-  .service('Users', ['ApiService', '$q', '$timeout', Users]);
+  .service('Users', ['ApiService', 'Cache', '$q', '$timeout', Users]);

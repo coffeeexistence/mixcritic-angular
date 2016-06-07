@@ -3,7 +3,7 @@ function Session(Auth, Alert){
 
   service.session = {
     loggedIn: function(){
-      return (typeof this.user !== "undefined")
+      return (typeof this.user !== "undefined");
     }
   };
   

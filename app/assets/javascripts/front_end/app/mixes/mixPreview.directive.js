@@ -16,7 +16,7 @@ function mixPreview() {
 				var description = $filter('limitTo')(mixCtrl.mix.description, mixCtrl.wordLimit);
 				if (mixCtrl.mix.description.length > mixCtrl.wordLimit) description+='...';
 				return description;
-			}
+			};
 
 			mixCtrl.expand = function(){
 				mixCtrl.expanded = true;
