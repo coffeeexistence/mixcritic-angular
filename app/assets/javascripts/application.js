@@ -3,7 +3,7 @@
 
 //= require angular/angular
 
-//= require custom_ng_modules/ng-resource-manager/ng-resource-manager
+//= require custom_ng_modules/ng-resource-manager/dist/ng-resource-manager.min
 
 //= require angular-sanitize/angular-sanitize
 //= require angular-ui-router/release/angular-ui-router

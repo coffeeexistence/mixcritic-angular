@@ -1,10 +1,60 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'net/http'
+require 'json'
+ 
+
+
+def get_randomuser_data
+  url = 'https://randomuser.me/api/'
+  uri = URI(url)
+  response = Net::HTTP.get(uri)
+  JSON.parse(response)
+end
+
+
+def create_user 
+  randomuser_data = get_randomuser_data
+  
+  user_creds = {
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    title: Faker::Name.title,
+    bio: Faker::Hipster.paragraph,
+    city: Faker::Address.city,
+    country: Faker::Address.country,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(8),
+  }
+
+  new_user = User.new(user_creds)
+  image_url = randomuser_data['results'][0]['picture']['large']
+  new_user.picture_from_url(image_url)
+  new_user.save
+  create_mix_for_user(new_user)
+end 
+
+def create_mix_for_user(user)
+  mix_params = {
+    title:Faker::Book.title+' - '+Faker::Book.title,
+    description: Faker::Hipster.paragraph,
+    user_id: user.id,
+    genre_id: Genre.all.sample.id
+  }
+  new_mix=Mix.new(mix_params)
+  new_mix.save
+
+  new_upload=Upload.create(url:'https://mixcritic.s3.amazonaws.com/DoopaLoopaLoop.mp3')
+  mix_revision=Revision.create
+
+  mix_revision.upload=new_upload
+  mix_revision.mix = new_mix
+  new_mix.revisions << mix_revision
+  new_mix.user = user
+  #byebug
+
+end
+
+
+
 
 help_topics = [ "Snare", "Drums", "Mic Positioning", "Vocals", "Guitar Tone", "Mastering",
   "Compression", "Bass Guitar", "Orchestra", "Synthesizers", "EQ", "Sound Field", "Reverb", "Delay",
@@ -29,43 +79,8 @@ end
 ## Create Users
 puts "Creating Users"
 
-def create_mix_for_user(user)
-  mix_params = {
-    title:Faker::Book.title+' - '+Faker::Book.title,
-    description: Faker::Hipster.paragraph,
-    user_id: user.id,
-    genre_id: Genre.all.sample.id
-  }
-  new_mix=Mix.new(mix_params)
-  new_mix.save
-
-  new_upload=Upload.create(url:'https://mixcritic.s3.amazonaws.com/DoopaLoopaLoop.mp3')
-  mix_revision=Revision.create
-
-  mix_revision.upload=new_upload
-  mix_revision.mix = new_mix
-  new_mix.revisions << mix_revision
-  new_mix.user = user
-  #byebug
-
-end
-
 10.times do
-  user_creds = {
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    title: Faker::Name.title,
-    bio: Faker::Hipster.paragraph,
-    city: Faker::Address.city,
-    country: Faker::Address.country,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(8),
-    avatar: Faker::Avatar.image
-  }
-
-  new_user = User.new(user_creds)
-  new_user.save
-  create_mix_for_user(new_user)
+  create_user
 end
 
 ##Create Critics

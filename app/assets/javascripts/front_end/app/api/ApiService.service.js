@@ -19,16 +19,18 @@ function ApiService($http, ResourceManger){
   });
   
   service.users = {
-    show:   function(id) { return userManager.find(id) },
-    profile:   function(id) { return $http.get('/api/users/'+id+'/profile.json') },
-    critiques: function(id) { return $http.get('/api/users/'+id+'/critiques.json') },
-    mixes: function(id) { return $http.get('/api/users/'+id+'/mixes.json') },
+    show:   function(id) { 
+      return userManager.find(id); 
+    },
+    profile:   function(id) { return $http.get('/api/users/'+id+'/profile.json'); },
+    critiques: function(id) { return $http.get('/api/users/'+id+'/critiques.json'); },
+    mixes:     function(id) { return $http.get('/api/users/'+id+'/mixes.json'); },
   };
 
   service.mixes = {
-    index:  function() { return $http.get('/api/mixes.json') },
-    create: function(data) { return $http.post('/api/mixes.json', data) },
-    show:   function(id) { return $http.get('/api/mixes/'+id+'.json') }
+    index:  function() { return $http.get('/api/mixes.json'); },
+    create: function(data) { return $http.post('/api/mixes.json', data); },
+    show:   function(id) { return $http.get('/api/mixes/'+id+'.json'); }
   }
 
   service.revisions = {
