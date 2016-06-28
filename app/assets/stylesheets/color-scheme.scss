@@ -2,7 +2,9 @@ $primary-color: #5A737F !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: color(#5A737F, "darken-1") !default;
+$font-color: $primary-color;
+
+$background-color: #FAFAFA;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
-$link-color: color(#5A737F, "darken-1") !default;
+$link-color: $primary-color-light;

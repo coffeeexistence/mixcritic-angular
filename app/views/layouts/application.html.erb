@@ -8,31 +8,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-controller="MainController as MainCtrl">
-  <div class="container">
-    <div class="row slim vertical-align">
-      <div class="col s4 valign-wrapper">
-        <div class="valign"><%= link_to (image_tag('main/logo-revised.png', class:'main-logo')), root_path %></div>
+  <md-content>
+    
+    <md-toolbar id="top-toolbar" layout="row" layout-align="space-between center">
+      
+      <div flex layout="row" layout-align="center center">
+        <%= link_to (image_tag('main/logo-revised.png', class:'main-logo')), root_path %>
+        <md-tabs flex md-selected="currentTab">
+          <md-tab id="tab1" aria-controls="tab1-content" ui-sref="mixes">Mixes</md-tab>
+          <md-tab ng-if="session.loggedIn()" id="tab2" aria-controls="tab2-content" ui-sref="new_mix">New Mix</md-tab>
+        </md-tabs>  
       </div>
-      <div class="col s4 valign-wrapper">
-        <div class="centered">
-         <a class="waves-effect btn-flat btn-large"
-          ng-class="{disabled: !MainCtrl.loggedIn}" ui-sref="new_mix">
-          <i class="material-icons left">add</i>New Mix
-        </a>
-         <a class="waves-effect btn-flat btn-large" ui-sref="mixes"><i class="material-icons left">album</i>Mixes</a>
-        </div>
-      </div>
-      <div class="col s4 valign-wrapper">
-        <session-actions class="centered"></session-actions>
-      </div>
-    </div>
-  </div>
-  <hr class="thin-hr">
+      
+      
+      
+      <session-actions flex></session-actions>
+      
+    </md-toolbar>
+    
+    <hr class="thin-hr">
 
-  <div class="container">
-  <alerts></alerts>
+    <div class="container">
+      <alerts></alerts>
       <%= yield %>
-  </div>
-
+    </div>
+    
+  </md-content>
 </body>
 </html>

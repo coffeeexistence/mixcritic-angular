@@ -1,5 +1,6 @@
 @import "color-scheme";
 @import 'angular-material/angular-material.scss';
-@import "main.scss";
-@import "mix-page.scss";
-@import "user-directives.scss";
+
+@import "site";
+@import "mix-page";
+@import "media_queries";

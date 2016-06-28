@@ -1,47 +1,14 @@
 
+{{mixCtrl.mix.views}} Views
+{{mixCtrl.mix.critique_count}} Critiques
+{{mixCtrl.mix.title}}
+{{mixCtrl.mix.genre.name}}
+{{mixCtrl.short_description()}}
+{{mixCtrl.mix.description}}
 
-<div class="mix-preview-outer">
+mixCtrl.expand();
 
+mixCtrl.expanded
 
-  <div class="mix-preview-border row mix-link">
+<small-audio-player url="mixCtrl.mix.current_revision_audio_path"></small-audio-player>
 
-    <div class="col s2 mix-preview-left">
-      <user-card class="mix-preview-chip" user-id="mixCtrl.mix.user_id"></user-card>
-      <div class="mix-preview-info grey-text centered">
-        <div class="col">{{mixCtrl.mix.views}} Views</div>
-        <div class="col">{{mixCtrl.mix.critique_count}} Critiques</div>
-      </div>
-    </div>
-
-    <div class="col s10">
-
-        <div class="mix-title grey-text thin-text">
-          <a ui-sref="mix({id:mixCtrl.mix.id})" class="primary-color-text">{{mixCtrl.mix.title}}</a>
-          {{mixCtrl.mix.genre.name}}
-        </div>
-
-        <div class="hr-left"></div>
-
-        <blockquote><div class="mix-description">
-          <p ng-if="!mixCtrl.expanded">{{mixCtrl.short_description()}}</p>
-          <p ng-if="mixCtrl.expanded">{{mixCtrl.mix.description}}</p>
-        </div></blockquote>
-
-        <div class="mix-preview-secondary-row">
-
-          <div class="mix-preview-expandable-section">
-            <button ng-show="!mixCtrl.expanded" ng-click="mixCtrl.expand();" class="btn btn-secondary btn-sm show-more">Show more</button>
-            <div ng-if="mixCtrl.expanded">
-              <small-audio-player url="mixCtrl.mix.current_revision_audio_path"></small-audio-player>
-            </div>
-          </div>
-
-
-
-
-        </div>
-
-    </div>
-
-  </div>
-</div>
