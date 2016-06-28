@@ -1,6 +1,5 @@
-@import "materialize/components/color";
-@import "materialize-color-scheme";
-@import 'materialize';
+@import "color-scheme";
+@import 'angular-material/angular-material.scss';
 @import "main.scss";
 @import "mix-page.scss";
 @import "user-directives.scss";

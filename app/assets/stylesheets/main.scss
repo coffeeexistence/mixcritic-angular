@@ -49,9 +49,7 @@ body {
 
 
 .default-button {
-  @extend .waves-effect;
-  @extend .waves-light;
-  @extend .btn;
+  padding: 10px;
 }
 
 

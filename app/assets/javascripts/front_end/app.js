@@ -3,7 +3,7 @@ angular
     'ngSanitize', 
     'ui.router', 
     'Devise', 
-    'ui.materialize', 
+    'angular-material', 
     'ngFileUpload',
      'ngMessages', 
      'smoothScroll', 

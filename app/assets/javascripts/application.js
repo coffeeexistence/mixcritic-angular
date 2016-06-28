@@ -14,7 +14,9 @@
 //= require ngSmoothScroll/lib/angular-smooth-scroll
 //= require angular-utils-pagination/dirPagination
 
-//= require angular-materialize/src/angular-materialize
+//= require angular-aria/angular-aria.min
+//= require angular-animate/angular-animate.min
+//= require angular-material/angular-material.min
 
 //= require_tree ./templates
 //= require_tree ./front_end
