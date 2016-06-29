@@ -21,7 +21,7 @@ function sessionActions () {
             '<user-chip user-id="session.user.id"></user-chip>',
             '<a href="" class="grey-text padding-1" ng-click="logOut()">Log out</a>',
         '</div>',
-        '<div ng-if="!session.loggedIn()">',
+        '<div layout="row" ng-if="!session.loggedIn()">',
             '<a href="" ui-sref="session_new" class="primary-color-text">Login</a> - ',
             '<a href="" ui-sref="session_register" class="primary-color-text">Register</a>',
         '</div>'].join('')

@@ -12,10 +12,10 @@ function mixPreview() {
 			mixCtrl.mix = $scope.mix;
 			mixCtrl.wordLimit = 180;
 
-			mixCtrl.short_description = function(){
-				var description = $filter('limitTo')(mixCtrl.mix.description, mixCtrl.wordLimit);
-				if (mixCtrl.mix.description.length > mixCtrl.wordLimit) description+='...';
-				return description;
+			$scope.mix.short_description = function(){
+				var description = $filter('limitTo')($scope.mix.description, mixCtrl.wordLimit);
+				if ($scope.mix.description.length > mixCtrl.wordLimit) description+='...';
+				return description; // angela dogvacay
 			};
 
 			mixCtrl.expand = function(){

@@ -3,18 +3,19 @@
 <head>
   <title>Mixcritic</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body ng-controller="MainController as MainCtrl">
-  <md-content>
+  
     
-    <md-toolbar id="top-toolbar" layout="row" layout-align="space-between center">
+    <md-toolbar id="top-toolbar" layout="row" layout-align="space-between center" class="md-whiteframe-z1">
       
-      <div flex layout="row" layout-align="center center">
+      <div  layout="row" layout-align="center center">
         <%= link_to (image_tag('main/logo-revised.png', class:'main-logo')), root_path %>
-        <md-tabs flex md-selected="currentTab">
+        <md-tabs id="top-tabs" flex md-selected="currentTab">
           <md-tab id="tab1" aria-controls="tab1-content" ui-sref="mixes">Mixes</md-tab>
           <md-tab ng-if="session.loggedIn()" id="tab2" aria-controls="tab2-content" ui-sref="new_mix">New Mix</md-tab>
         </md-tabs>  
@@ -22,13 +23,13 @@
       
       
       
-      <session-actions flex></session-actions>
+      <session-actions ></session-actions>
       
     </md-toolbar>
     
-    <hr class="thin-hr">
+    <md-content>
 
-    <div class="container">
+    <div layout="column" layout-align="center center">
       <alerts></alerts>
       <%= yield %>
     </div>

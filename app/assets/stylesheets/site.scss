@@ -9,13 +9,20 @@ h1, h2, h3, h4, h5 {
   font-weight: 400;
 }
 
-md-toolbar#top-toolbar {
+$top-toolbar-height: 50px;
+
+#top-toolbar {
   background-color: $background-color;
   width: 100%;
+  height: $top-toolbar-height;
 }
 
-#top-toolbar#top-tabs {
-  
+#top-tabs {
+  min-width: 300px;
+}
+
+#top-toolbar div {
+  height: $top-toolbar-height;
 }
 
 a {
@@ -23,34 +30,14 @@ a {
 }
 
 .main-logo {
-  max-height: 60px;  
+  height: 45px;  
+  margin: 0em 1em 0em 10px;
 }
 
 session-actions {
   text-align: right;
   padding: 10px;
   margin-right: 1em;
-}
-
-
-
-
-hr {
-  height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.05), rgba(0,0,0,.2), rgba(0,0,0,0.05));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0.05), rgba(0,0,0,.2), rgba(0,0,0,0.05));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0.05), rgba(0,0,0,.2), rgba(0,0,0,0.05));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0.05), rgba(0,0,0,.2), rgba(0,0,0,0.05));
-  border: 0;
-}
-
-.hr-left {
-  height: 1px;
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.2), rgba(0,0,0,0), rgba(0,0,0,0.0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0.2), rgba(0,0,0,0), rgba(0,0,0,0.0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0.2), rgba(0,0,0,0), rgba(0,0,0,0.0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0.2), rgba(0,0,0,0), rgba(0,0,0,0.0));
-  border: 0;
 }
 
 .float-right {
@@ -107,7 +94,7 @@ hr {
   margin-top:0.5em;
   text-decoration: none;
   font-size: 2em;
-
+  
 }
 
 .small-text {
@@ -122,7 +109,9 @@ hr {
   margin-bottom:0px;
 }
 
-
+.fill-width {
+  width: 100%;
+}
 
 .slightly-rounded-border {
     border-radius: 5px;
@@ -176,8 +165,7 @@ hr {
 }
 
 .audio-full {
-
-
+  width: 100%;
 }
 
 .audio-normal {
@@ -245,9 +233,6 @@ nav {
   color: #E5514C;
 }
 
-h2 {
-  font-weight: 300;
-}
 
 img {
   max-height:100%;
@@ -261,11 +246,40 @@ img {
 
 
 .user-card {
-  display: block;
-  border-radius: 8px;
-  margin-bottom: 1em;
+  
 }
 
 .user-card-img {
-  border-radius: 15px;
+  border-radius: 50px;
+}
+
+
+.mix-preview {
+  margin: 1em;
+  margin-bottom: 2em;
+  max-width: 1500px;
+  border-radius: 5px;
+}
+
+mixes {
+  width: 70%;
+}
+
+.mix-preview div {
+  padding: 5px 10px 5px 10px;
+}
+
+.mix-preview-title {
+  font-size: 2em;
+  padding: 10px;
+}
+
+
+.help-topic-rating {
+  min-width: 20px;
+  min-height: 60px;
+}
+
+.primary-bg {
+  background-color: $primary-color;
 }

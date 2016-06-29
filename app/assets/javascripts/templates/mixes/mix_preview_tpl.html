@@ -1,14 +1,61 @@
 
-{{mixCtrl.mix.views}} Views
-{{mixCtrl.mix.critique_count}} Critiques
-{{mixCtrl.mix.title}}
-{{mixCtrl.mix.genre.name}}
-{{mixCtrl.short_description()}}
-{{mixCtrl.mix.description}}
+<div flex="70" layout="column" layout-align="start" class="mix-preview md-whiteframe-z1">
+  
+  <div flex class="mix-preview-audio-row primary-bg" layout="row" layout-align="space-between center">
+    <div>Play/Pause</div>
+    <small-audio-player flex="60" url="mix.current_revision_audio_path"></small-audio-player>
+    <div>{{mix.genre.name}}</div>
+  </div>
+  <div flex layout="column" layout-fill layout-align="center center" class="mix-preview-title">
+    {{mix.title}}
+    <hr flex class="thin-hr">
+  </div>
+    
+  <div flex="99" layout="row" layout-align="space-between center">
+    <div flex="15">
+      
+      <user-card user-id="mix.user_id"></user-card>
+
+    </div>
+    
+    <div flex="80" layout="column" layout-align="start start">
+      <div flex>
+        Seeking feedback on
+      </div>  
+      <div layout="row" layout-fill layout-align="space-between space-between">
+        <div flex class="help-topic-rating">1</div>
+        <div flex class="help-topic-rating">2</div>
+        <div flex class="help-topic-rating">3</div>
+      </div>
+
+    </div>
+    
+  </div>
+  
+  <div layout="row" layout-align="start center">
+    {{short_description()}}
+  </div>
+  <hr>
+  <div layout="row" layout-align="space-between center">
+    <div>
+      5 Hearts
+    </div>
+    
+    <div>
+      {{mix.critique_count}} Critiques
+    </div>
+    
+    <div>
+      &gt;
+    </div>
+  </div>
+
+
+</div>
+
+
+mixCtrl.mix.description
 
 mixCtrl.expand();
 
 mixCtrl.expanded
-
-<small-audio-player url="mixCtrl.mix.current_revision_audio_path"></small-audio-player>
-

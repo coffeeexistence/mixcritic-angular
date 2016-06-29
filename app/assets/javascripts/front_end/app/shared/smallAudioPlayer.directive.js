@@ -17,7 +17,7 @@ function smallAudioPlayer() {
 		controllerAs: 'smallAudioCtrl',
 		template: [
 			'<div class="audio" ng-if="smallAudioCtrl.show">',
-			  '<audio controls>',
+			  '<audio class="audio-full" controls>',
 			    '<source ng-src="{{smallAudioCtrl.url}}" type="audio/mpeg">',
 			  'Your browser does not support the audio element.',
 			  '</audio>',
